@@ -1,0 +1,24 @@
+# INTELLIJ
+.idea/
+*.ipr
+*.iml
+
+# SYSTEM FILES
+*~
+.DS_STORE
+
+# GRADLE
+.gradle
+build/
+out/
+!dokka/out/
+gradle.properties
+gradle.props
+local.properties
+.gradletasknamecache
+
+# JS
+node_modules/
+
+#SASS
+.sass-cache
