@@ -35,12 +35,11 @@ class Contact : RComponent<Contact.Props, RState>() {
                 img(alt = "Twitter", src = "twitter.svg") {}
             }
 
-            a(href = "mailto:everywhere.kotlin.paris@kodein.net") {
+            a(href = "mailto:everywhere@kotlin.paris") {
                 img(alt = "E-mail", src = "email.svg") {}
             }
         }
 
     }
-
 
 }
