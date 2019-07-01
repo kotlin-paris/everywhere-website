@@ -2,11 +2,14 @@ package paris.kotlin.everywhere.mainpage
 
 
 import kotlinx.css.*
+import kotlinx.css.properties.TextDecoration
 import kotlinx.css.properties.ms
 import kotlinx.css.properties.transition
 import paris.kotlin.everywhere.keYellow
 import react.*
+import react.dom.a
 import react.dom.b
+import react.dom.br
 import styled.css
 import styled.styledP
 import styled.styledSpan
@@ -33,11 +36,20 @@ class SubHeader : RComponent<RProps, SubHeader.State>() {
                 padding(50.px, 25.px, 15.px, 25.px)
                 fontSize = 1.5.em
                 textAlign = TextAlign.center
+
+                "a" {
+                    color = Color.lightSkyBlue
+                    textDecoration = TextDecoration.none
+                }
             }
 
             +"Le "
             b { +"26 octobre 2019" }
-            +", un rendez-vous pour mettre Kotlin dans "
+            +", sur le "
+            b { a(href="https://goo.gl/maps/9rqQKUzPV7hkEdqc7") { +"campus d'Epitech Paris" } }
+            +","
+            br {}
+            +"un rendez-vous pour mettre Kotlin dans "
 
             styledSpan {
                 css {

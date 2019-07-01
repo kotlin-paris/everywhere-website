@@ -40,13 +40,20 @@ class Sponsors : RComponent<Sponsors.Props, RState>() {
                     justifyContent = JustifyContent.center
                     alignItems = Align.center
                     padding(2.em)
+
+                    "a" {
+                        margin(1.em)
+                    }
                 }
 
                 a(href = "https://kodein.net") {
                     styledImg(alt = "Kodein Koders", src = "kodein-logo.svg") {
-                        css {
-                            width = 20.em
-                        }
+                        css { height = 65.px }
+                    }
+                }
+                a(href = "https://epitech.eu/") {
+                    styledImg(alt = "Epitech", src = "epitech-logo.png") {
+                        css { height = 90.px }
                     }
                 }
             }
