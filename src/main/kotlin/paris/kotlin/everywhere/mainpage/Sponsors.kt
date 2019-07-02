@@ -20,7 +20,7 @@ class Sponsors : RComponent<Sponsors.Props, RState>() {
             ref = props.scrollTo
             css {
                 margin(20.px, 0.px)
-                padding(2.em)
+                padding(2.em, 0.px)
                 backgroundColor = Color.silver
                 boxShadowInset(Color.black, blurRadius = 3.px)
             }
@@ -38,22 +38,25 @@ class Sponsors : RComponent<Sponsors.Props, RState>() {
                     display = Display.flex
                     flexDirection = FlexDirection.row
                     justifyContent = JustifyContent.center
+                    flexWrap = FlexWrap.wrap
                     alignItems = Align.center
-                    padding(2.em)
 
                     "a" {
                         margin(1.em)
+                        "img" {
+                            maxWidth = 100.pct
+                        }
                     }
                 }
 
                 a(href = "https://kodein.net") {
                     styledImg(alt = "Kodein Koders", src = "kodein-logo.svg") {
-                        css { height = 65.px }
+                        css { maxHeight = 70.px }
                     }
                 }
                 a(href = "https://epitech.eu/") {
                     styledImg(alt = "Epitech", src = "epitech-logo.png") {
-                        css { height = 90.px }
+                        css { maxHeight = 90.px }
                     }
                 }
             }
