@@ -16,8 +16,18 @@ class Contact : RComponent<Contact.Props, RState>() {
 
     override fun RBuilder.render() {
 
-        styledDiv {
+        styledH1 {
             ref = props.scrollTo
+            css {
+                textAlign = TextAlign.center
+                color = Color.silver
+                paddingTop = 1.em
+            }
+
+            +"Contact"
+        }
+
+        styledDiv {
             css {
                 display = Display.flex
                 flexDirection = FlexDirection.row

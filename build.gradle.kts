@@ -24,6 +24,8 @@ kotlin {
     sourceSets["main"].dependencies {
         implementation(kotlin("stdlib-js"))
 
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.2.2")
+
         val wrapperVersion = "pre.72-kotlin-1.3.31"
 
         implementation("org.jetbrains:kotlin-react-dom:16.6.0-$wrapperVersion")

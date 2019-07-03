@@ -44,7 +44,7 @@ class SubHeader : RComponent<RProps, SubHeader.State>() {
             }
 
             +"Le "
-            b { +"26 octobre 2019" }
+            b { +"19 octobre 2019" }
             +", sur le "
             b { a(href="https://goo.gl/maps/9rqQKUzPV7hkEdqc7") { +"campus d'Epitech Paris" } }
             +","

@@ -28,6 +28,7 @@ class Sponsors : RComponent<Sponsors.Props, RState>() {
             styledH1 {
                 css {
                     textAlign = TextAlign.center
+                    color = Color.dimGray
                 }
 
                 +"Sponsors"

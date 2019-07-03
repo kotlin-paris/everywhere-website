@@ -46,13 +46,22 @@ class MainPage : RComponent<MainPage.Props, RState>() {
             }
         }
 
-//        if (props.section == "tickets")
-//            child(Overlay::class) {
-//                attrs {
-//                    onCloseSection = previousSection
-//                }
-//                child(Tickets::class) {}
-//            }
+        if (props.id != null) {
+            when (props.section) {
+                "speakers" -> {
+                    child(Overlay::class) {
+                        attrs {
+                            onCloseSection = previousSection
+                        }
+                        child(Speaker::class) {
+                            attrs {
+                                id = props.id!!
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private fun getOffset(anchor: String?): Int {
@@ -74,7 +83,7 @@ class MainPage : RComponent<MainPage.Props, RState>() {
         previousSection = props.section ?: ""
 
         if (props.section != nextProps.section) {
-            if (previousId == null) {
+            if (previousId == null && nextProps.id == null) {
                 val offset = getOffset(nextProps.section)
                 if (offset != -1)
                     window.scrollTo(ScrollToOptions(0.0, offset.toDouble(), ScrollBehavior.SMOOTH))
