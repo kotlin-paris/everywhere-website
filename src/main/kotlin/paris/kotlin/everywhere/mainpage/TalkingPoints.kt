@@ -48,9 +48,9 @@ class TalkingPoints : RComponent<RProps, RState>() {
             }
 
             h2 {
-                +"250"
+                +"3"
                 br {}
-                span { +"participants" }
+                span { +"Workshops" }
             }
 
             h2 {

@@ -4,6 +4,7 @@ package paris.kotlin.everywhere.mainpage
 import kotlinx.css.*
 import kotlinx.css.properties.*
 import paris.kotlin.everywhere.MainPage
+import paris.kotlin.everywhere.data.speakers
 import react.*
 import react.dom.*
 import styled.*
@@ -46,6 +47,7 @@ class Speakers : RComponent<Speakers.Props, RState>() {
                     color = Color.black
                     textDecoration = TextDecoration.none
                     transition(duration = 0.3.s)
+                    margin(1.em)
 
                     hover {
                         boxShadow(Color.black, blurRadius = 12.px)
@@ -58,10 +60,21 @@ class Speakers : RComponent<Speakers.Props, RState>() {
                 }
             }
 
-            a(href = "#/speakers/sebastien-deleuze") {
-                img(src = "speakers/sebastien-deleuze.jpg") {}
-                b {
-                    +"Sébastien Deleuze"
+            for (id in speakers.filter { it.value.featured }.keys.sorted()) {
+                a(href = "#/speakers/$id") {
+                    img(src = "speakers/$id.jpg") {}
+                    b {
+                        +speakers[id]!!.name
+                    }
+                }
+            }
+
+            for (id in speakers.filter { it.value.featured.not() } .keys.sorted()) {
+                a(href = "#/speakers/$id") {
+                    img(src = "speakers/$id.jpg") {}
+                    b {
+                        +speakers[id]!!.name
+                    }
                 }
             }
 

@@ -2,7 +2,7 @@
 //import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
 
 plugins {
-    kotlin("js") version "1.3.40"
+    kotlin("js") version "1.3.41"
 //    id("org.jetbrains.kotlin.frontend") version "0.0.45"
 //    id("kotlin-dce-js")
 }
@@ -26,7 +26,7 @@ kotlin {
 
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.2.2")
 
-        val wrapperVersion = "pre.72-kotlin-1.3.31"
+        val wrapperVersion = "pre.77-kotlin-1.3.41"
 
         implementation("org.jetbrains:kotlin-react-dom:16.6.0-$wrapperVersion")
         implementation("org.jetbrains:kotlin-react-router-dom:4.3.1-$wrapperVersion")

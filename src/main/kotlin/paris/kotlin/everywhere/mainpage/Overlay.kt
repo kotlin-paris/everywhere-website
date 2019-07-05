@@ -7,6 +7,8 @@ import kotlinx.coroutines.launch
 import kotlinx.css.*
 import kotlinx.css.properties.TextDecoration
 import kotlinx.css.properties.boxShadow
+import kotlinx.css.properties.s
+import kotlinx.css.properties.transition
 import kotlinx.html.js.onClickFunction
 import org.w3c.dom.HTMLElement
 import react.*
@@ -17,6 +19,8 @@ class Overlay : RComponent<Overlay.Props, RState>() {
 
     interface Props : RProps {
         var onCloseSection: String
+        var id: String
+        var setClose: (close: suspend () -> Unit) -> Unit
     }
 
     private val back = createRef<HTMLElement>()
@@ -53,7 +57,7 @@ class Overlay : RComponent<Overlay.Props, RState>() {
 
             attrs {
                 onClickFunction = {
-                    close()
+                    window.location.hash = "/${props.onCloseSection}"
                 }
             }
 
@@ -85,25 +89,31 @@ class Overlay : RComponent<Overlay.Props, RState>() {
                         right = 1.em
                         top = 0.5.em
                         cursor = Cursor.pointer
+                        transition("color", 0.3.s)
+
+                        hover {
+                            color = Color.dimGray
+                        }
                     }
 
                     attrs {
                         onClickFunction = {
-                            close()
+                            window.location.hash = "/${props.onCloseSection}"
                         }
                     }
 
                     +"x"
                 }
 
-                props.children()
+                children()
             }
 
         }
 
     }
 
-    override fun componentDidMount() {
+    private fun open() {
+        props.setClose(this::close)
         val back = this.back.current!!
         val front = front.current!!
         back.style.opacity = "0"
@@ -121,7 +131,16 @@ class Overlay : RComponent<Overlay.Props, RState>() {
         }
     }
 
-    private fun close() {
+    override fun componentDidMount() {
+        open()
+    }
+
+    override fun componentWillReceiveProps(nextProps: Props) {
+        if (nextProps.id != props.id)
+            open()
+    }
+
+    private suspend fun close() {
         val back = this.back.current!!
         val front = front.current!!
 
@@ -133,10 +152,7 @@ class Overlay : RComponent<Overlay.Props, RState>() {
         front.style.transform = "translate(0, -30px)"
         front.style.opacity = "0"
 
-        MainScope().launch {
-            delay(301)
-            window.location.hash = "/${props.onCloseSection}"
-        }
+        delay(301)
     }
 
 }

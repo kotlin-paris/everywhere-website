@@ -115,13 +115,13 @@ class Header : RComponent<RProps, Header.State>() {
                 styledA(href = "https://forms.gle/KacyKu2jrhejzXzcA") {
                     css {
                         specific {
-                            backgroundColor = Color("#4b7cba")
+                            backgroundColor = Color.cornflowerBlue
                             color = Color.white
                             padding(10.px, 18.px)
                             display = Display.inline
 
                             hover {
-                                backgroundColor = Color("#264160")
+                                backgroundColor = Color.steelBlue
                             }
                         }
                     }
