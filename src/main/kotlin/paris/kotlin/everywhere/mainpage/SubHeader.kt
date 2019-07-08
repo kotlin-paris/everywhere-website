@@ -72,7 +72,7 @@ class SubHeader : RComponent<RProps, SubHeader.State>() {
             br {}
             +"Réservez votre place "
             a(href="https://www.eventbrite.fr/e/billets-kotlineverywhere-paris-2019-64962254853") { +"super early bird" }
-            +" dès aujourd'hui !"
+            +" dès aujourd'hui (14€ au lieu de 22€) !"
         }
     }
 
