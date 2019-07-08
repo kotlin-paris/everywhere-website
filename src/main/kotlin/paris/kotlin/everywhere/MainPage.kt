@@ -36,6 +36,7 @@ class MainPage : RComponent<MainPage.Props, RState>() {
             }
         }
         child(Agenda::class) {}
+        child(Tickets::class) {}
         child(Sponsors::class) {
             attrs {
                 scrollTo = anchors.getOrPut("sponsors") { createRef() }
@@ -51,6 +52,7 @@ class MainPage : RComponent<MainPage.Props, RState>() {
                 scrollTo = anchors.getOrPut("talks") { createRef() }
             }
         }
+        child(Tickets::class) {}
         child(Contact::class) {
             attrs {
                 scrollTo = anchors.getOrPut("contact") { createRef() }
