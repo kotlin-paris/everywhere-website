@@ -112,7 +112,7 @@ class Header : RComponent<RProps, Header.State>() {
                     }
 
                 }
-                styledA(href = "https://forms.gle/KacyKu2jrhejzXzcA") {
+                styledA(href = "https://www.eventbrite.fr/e/billets-kotlineverywhere-paris-2019-64962254853") {
                     css {
                         specific {
                             color = Color.white
