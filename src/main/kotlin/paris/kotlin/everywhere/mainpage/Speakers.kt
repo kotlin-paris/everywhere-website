@@ -34,19 +34,17 @@ class Speakers : RComponent<Speakers.Props, RState>() {
                 flexWrap = FlexWrap.wrap
                 alignItems = Align.center
                 justifyContent = JustifyContent.center
-                margin(1.em)
+                margin(1.em, LinearDimension.auto)
                 paddingTop = 1.em
+                maxWidth = 60.em
 
                 "a" {
-                    backgroundColor = Color.silver
+                    backgroundColor = Color.whiteSmoke
                     display = Display.flex
                     flexDirection = FlexDirection.column
                     boxShadow(Color.black, blurRadius = 3.px)
                     borderRadius = 0.4.em
                     overflow = Overflow.hidden
-                    color = Color.black
-                    textDecoration = TextDecoration.none
-                    transition(duration = 0.3.s)
                     margin(1.em)
 
                     hover {

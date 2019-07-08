@@ -45,14 +45,7 @@ class Talk : RComponent<Talk.Props, RState>() {
                     display = Display.flex
                     flexDirection = FlexDirection.row
                     alignItems = Align.center
-                    color = Color.cornflowerBlue
-                    textDecoration = TextDecoration.none
-                    transition("color", 0.3.s)
                     margin(1.em)
-
-                    hover {
-                        color = Color.steelBlue
-                    }
 
                     "img" {
                         width = 80.px

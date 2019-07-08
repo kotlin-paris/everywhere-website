@@ -1,7 +1,10 @@
 package paris.kotlin.everywhere
 
 import kotlinx.css.*
+import kotlinx.css.properties.TextDecoration
 import kotlinx.css.properties.boxShadow
+import kotlinx.css.properties.s
+import kotlinx.css.properties.transition
 import react.dom.render
 import styled.StyledComponents
 import styled.injectGlobal
@@ -22,6 +25,16 @@ fun main() {
             body {
                 backgroundColor = Color("#393939")
                 fontFamily = "'Open Sans', sans-serif"
+            }
+
+            a {
+                color = Color.steelBlue
+                transition(duration = 0.3.s)
+                textDecoration = TextDecoration.none
+
+                hover {
+                    color = Color.cornflowerBlue
+                }
             }
 
         }

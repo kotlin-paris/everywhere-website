@@ -106,7 +106,7 @@ class Header : RComponent<RProps, Header.State>() {
                             backgroundColor = Color("#FFFFFF44")
                         }
 
-                        media("(max-width: 920px)") {
+                        media("(max-width: 970px)") {
                             display = Display.none
                         }
                     }
@@ -115,13 +115,13 @@ class Header : RComponent<RProps, Header.State>() {
                 styledA(href = "https://forms.gle/KacyKu2jrhejzXzcA") {
                     css {
                         specific {
-                            backgroundColor = Color.cornflowerBlue
                             color = Color.white
                             padding(10.px, 18.px)
                             display = Display.inline
+                            backgroundColor = Color.steelBlue
 
                             hover {
-                                backgroundColor = Color.steelBlue
+                                backgroundColor = Color.cornflowerBlue
                             }
                         }
                     }
@@ -131,6 +131,7 @@ class Header : RComponent<RProps, Header.State>() {
                 a(href = "#/agenda") { +"AGENDA" }
                 a(href = "#/sponsors") { +"SPONSORS" }
                 a(href = "#/speakers") { +"SPEAKERS" }
+                a(href = "#/talks") { +"TALKS" }
                 a(href = "#/contact") { +"CONTACT" }
                 a(href = "https://forms.gle/R9vvrErsGcfepC2e6") { +"CALL 4 PAPERS" }
             }

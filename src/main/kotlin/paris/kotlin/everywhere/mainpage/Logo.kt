@@ -28,9 +28,9 @@ class Logo : RComponent<Logo.Props, RState>() {
                 justifyContent = JustifyContent.center
 
                 if (isSmall) {
-                    marginRight = 610.px
+                    marginRight = 690.px
 
-                    media("(max-width: 920px)") {
+                    media("(max-width: 970px)") {
                         marginRight = 16.em
                     }
                     media("(max-width: 540px)") {
@@ -74,6 +74,10 @@ class Logo : RComponent<Logo.Props, RState>() {
                         css {
                             color = Color.black
                             textDecoration = TextDecoration.none
+
+                            hover {
+                                color = Color.black
+                            }
                         }
 
                         styledDiv {

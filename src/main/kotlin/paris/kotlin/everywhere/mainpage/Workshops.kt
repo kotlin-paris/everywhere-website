@@ -6,6 +6,7 @@ import kotlinx.css.properties.boxShadow
 import kotlinx.css.properties.s
 import kotlinx.css.properties.transition
 import paris.kotlin.everywhere.MainPage
+import paris.kotlin.everywhere.data.speakers
 import paris.kotlin.everywhere.data.talks
 import paris.kotlin.everywhere.keYellow
 import react.RBuilder
@@ -22,15 +23,21 @@ class Workshops : RComponent<Workshops.Props, RState>() {
 
     private fun RBuilder.renderWorkshop(id: String) {
         a(href="#/agenda/$id") {
-            b { +"Workshop" }
+            val talk = talks[id]!!
+
+            +"Workshop"
             br {}
-            +talks[id]!!.title
+            b { +talk.title }
+            i {
+                +talk.speakers.map { speakers.getValue(it).name }.joinToString()
+            }
         }
 
     }
 
     override fun RBuilder.render() {
         styledDiv {
+            ref = props.scrollTo
             css {
                 margin(20.px, 1.em, 60.px, 1.em)
 
@@ -52,17 +59,22 @@ class Workshops : RComponent<Workshops.Props, RState>() {
                     "a" {
                         display = Display.block
                         boxShadow(Color.black, blurRadius = 3.px)
-                        borderRadius = 10.px
-                        backgroundColor = Color.keYellow
+                        borderRadius = 0.4.em
+                        backgroundColor = Color.whiteSmoke
                         margin(0.pct, 2.pct)
-                        color = Color.black
-                        textDecoration = TextDecoration.none
                         padding(1.em)
-                        textAlign = TextAlign.center
-                        transition(duration = 0.3.s)
+                        textAlign = TextAlign.left
 
                         hover {
                             boxShadow(Color.black, blurRadius = 12.px)
+                        }
+
+                        "i" {
+                            fontSize = 0.75.em
+                            display = Display.block
+                            textAlign = TextAlign.left
+                            paddingTop = 1.em
+                            color = Color.gray
                         }
                     }
                 }
@@ -90,7 +102,7 @@ class Workshops : RComponent<Workshops.Props, RState>() {
 
                 renderWorkshop("workshop-coroutines")
                 renderWorkshop("workshop-multiplatform")
-                renderWorkshop("workshop-server")
+                renderWorkshop("workshop-cloud")
 
             }
 
@@ -157,7 +169,7 @@ class Workshops : RComponent<Workshops.Props, RState>() {
                     +"9h00"
                 }
 
-                renderWorkshop("workshop-server")
+                renderWorkshop("workshop-cloud")
             }
         }
     }

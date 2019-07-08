@@ -37,16 +37,21 @@ class SubHeader : RComponent<RProps, SubHeader.State>() {
                 fontSize = 1.5.em
                 textAlign = TextAlign.center
 
+                "b" {
+                    fontSize = 1.3.em
+                }
+
                 "a" {
                     color = Color.lightSkyBlue
                     textDecoration = TextDecoration.none
+                    fontWeight = FontWeight.bold
                 }
             }
 
             +"Le "
             b { +"19 octobre 2019" }
             +", sur le "
-            b { a(href="https://goo.gl/maps/9rqQKUzPV7hkEdqc7") { +"campus d'Epitech Paris" } }
+            a(href="https://goo.gl/maps/9rqQKUzPV7hkEdqc7") { +"campus d'Epitech Paris" }
             +","
             br {}
             +"un rendez-vous pour mettre Kotlin dans "

@@ -32,16 +32,21 @@ class Speaker : RComponent<Speaker.Props, RState>() {
 
                 "img" {
                     borderRadius = 10.px
+                    marginBottom = 0.5.em
                 }
 
                 "h3" {
                     fontSize = 1.5.em
-                    padding(0.8.em, 0.px)
                     textAlign = TextAlign.center
+                }
+                "h4" {
+                    fontWeight = FontWeight.normal
                 }
 
                 "p" {
+                    paddingTop = 0.8.em
                     alignSelf = Align.stretch
+                    fontSize = 0.9.em
                 }
 
                 "hr" {
@@ -51,30 +56,25 @@ class Speaker : RComponent<Speaker.Props, RState>() {
                     borderStyle = BorderStyle.none
                     margin(0.8.em, 0.em)
                 }
+
+                "a" {
+                    display = Display.block
+                    alignSelf = Align.flexStart
+                }
             }
 
             img(src = "speakers/${speaker.id}.jpg") {}
             h3 { +speaker.name }
+            speaker.company?.let { h4 { +it } }
             p { +speaker.description }
 
             speaker.talks.mapNotNull { talks[it] }.forEach { talk ->
                 hr {}
-                p {
-                    styledA(href = "#/agenda/${talk.id}") {
-                        css {
-                            color = Color.cornflowerBlue
-                            textDecoration = TextDecoration.none
-                            transition("color", 0.3.s)
-
-                            hover {
-                                color = Color.steelBlue
-                            }
-                        }
-                        b {
-                            if (talk.isWorkshop)
-                                +"Workshop "
-                            +talk.title
-                        }
+                a(href = "#/agenda/${talk.id}") {
+                    b {
+                        if (talk.isWorkshop)
+                            +"Workshop "
+                        +talk.title
                     }
                 }
             }

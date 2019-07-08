@@ -41,7 +41,7 @@ class Contact : RComponent<Contact.Props, RState>() {
                 }
             }
 
-            a(href = "https://twitter.com/KotlinParis") {
+            a(href = "https://twitter.com/kotlin_paris") {
                 img(alt = "Twitter", src = "twitter.svg") {}
             }
 

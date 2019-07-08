@@ -3,6 +3,7 @@ package paris.kotlin.everywhere.data
 data class Speaker(
     val id: String,
     val name: String,
+    val company: String? = null,
     val description: String,
     val talks: List<String> = emptyList(),
     val featured: Boolean = false
@@ -19,8 +20,20 @@ data class Talk(
 
 val speakers = listOf(
     Speaker(
+        id = "dmitry-savvinov",
+        name = "Dmitry Savvinov",
+        company = "JetBrains",
+        description = """
+            I've made my first acquaintance with Kotlin Team in 2016 during "JetBrains Summer Internship", where I was a part of the team responsible for implementing a translator from Kotlin to LLVM and then using it to deploy simple Kotlin program onto Raspberry Pi controller. Sometimes  One could say that was one of the very first Kotlin/Native programs :) (though the translator itself was terrible, obviously). 
+            From 2016 to 2017 I was writing a Master thesis together with Kotlin team, which results were used later as foundation for a language feature known now as Kotlin Contracts. In Kotlin Team, my main field of interest is compiler's frontend: code analysis, type inference, etc. Currently I'm actively working on improving multiplatform projects support in the compiler and IDE.            
+        """.trimIndent(),
+        talks = listOf("multiplatform-kotlin13"),
+        featured = true
+    ),
+    Speaker(
         id = "geoffrey-metais",
         name = "Geoffrey Métais",
+        company = "VideoLan",
         description = "Lead Android developer at VideoLAN and Videolabs.",
         talks = listOf("workshop-coroutines")
     ),
@@ -33,18 +46,21 @@ val speakers = listOf(
     Speaker(
         id = "romain-boisselle",
         name = "Romain Boisselle",
+        company = "Kodein Koders",
         description = "Je suis un développeur backend depuis 8 ans, principalement en Java + Spring et freelance depuis un an, centré sur les architectures backend. Je suis tombé amoureux de Kotlin il y a 4 ans, et l'utilise réellement en production depuis deux ans dans des projets backend. Java ne sera bientôt plus qu'un souvenir :) Je suis également un père comblé, et adepte du zéro gaspillage.",
-        talks = listOf("workshop-server")
+        talks = listOf("workshop-cloud")
     ),
     Speaker(
         id = "salomon-brys",
         name = "Salomon Brys",
+        company = "Kodein Koders",
         description = "Passionné de Kotlin depuis que Kotlin il y a, Salomon est le fondateur de Kodein Koders et du Kodein Framework. Fortement implanté dans la philosophie Open-Source, il se dédie à la création de librairie et d'outils pour rendre la programmation plus facile, sure, et fun. Il est aussi addict aux jeux de sociétés, et adore piloter des avions de loisir.",
         talks = listOf("workshop-multiplatform")
     ),
     Speaker(
         id = "sebastien-deleuze",
         name = "Sébastien Deleuze",
+        company = "Pivotal",
         description = "Sébastien est committer Spring Framework chez Pivotal. Il travaille principalement sur le support de Kotlin des différents projets Spring, ainsi que sur les sujets Web et Reactive. Il a créé le project Spring Fu et est également membre de l'équipe qui organise la conférence MiXiT.",
         talks = listOf("spring-kotlin"),
         featured = true
@@ -52,6 +68,17 @@ val speakers = listOf(
 ).associateBy { it.id }
 
 val talks = listOf(
+    Talk(
+        id = "multiplatform-kotlin13",
+        title = "Multiplatform Programming in Kotlin 1.3",
+        description = """
+            Kotlin Multiplatform is a language feature which provides the ability to share and re-use common code across different platforms. The very first iteration was announced in Kotlin 1.2, and since then, multiplatform technology has greatly evolved.
+            In this talk, we'll give a consistent, cumulative overview of the most recent features and changes in multiplatform projects support in Kotlin. Also, we'll explain why these changes were made and what new opportunities they unlock.
+            The talk is well-suited both for beginners who want to get an introduction into technology, and for advanced users who want to hear latest news and insights about multiplatform programming in Kotlin.
+        """.trimIndent(),
+        language = "fr",
+        speakers = listOf("dmitry-savvinov")
+    ),
     Talk(
         id = "spring-kotlin",
         title = "Spring Boot avec Kotlin, Kofu et les Coroutines",
@@ -88,8 +115,8 @@ val talks = listOf(
         isWorkshop = true
     ),
     Talk(
-        id = "workshop-server",
-        title = "Un serveur moderne en Kotlin",
+        id = "workshop-cloud",
+        title = "Cloud moderne en Kotlin",
         description = """
             Dans ce workshop, nous verrons une nouvelle manière de coder des serveurs en Kotlin, grâce à une librarie développée par Jetbrains : Ktor, un framework permettant de créer un serveur entièrement asynchrone grâce à la puissance du langage Kotlin et de ses coroutines.
             Nous commencerons par présenter Ktor et ses utilisations les plus simples pour créer, en quelques lignes, un serveur simple permettant de servir une API et du contenu statique. Nous verrons ensuite comment utiliser certaines des fonctionalités plus avancées, notemment liées à la sécurité et aux systèmes complexes.
