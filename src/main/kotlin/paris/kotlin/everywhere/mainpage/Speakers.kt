@@ -3,6 +3,7 @@ package paris.kotlin.everywhere.mainpage
 
 import kotlinx.css.*
 import kotlinx.css.properties.*
+import kotlinx.html.unsafe
 import paris.kotlin.everywhere.MainPage
 import paris.kotlin.everywhere.data.speakers
 import react.*
@@ -46,6 +47,7 @@ class Speakers : RComponent<Speakers.Props, RState>() {
                     borderRadius = 0.4.em
                     overflow = Overflow.hidden
                     margin(1.em)
+                    paddingBottom = 0.8.em
 
                     hover {
                         boxShadow(Color.black, blurRadius = 12.px)
@@ -53,7 +55,15 @@ class Speakers : RComponent<Speakers.Props, RState>() {
 
                     "b" {
                         fontSize = 1.1.em
-                        padding(0.8.em, 0.em, 0.8.em, 0.5.em)
+                        padding(0.8.em, 0.5.em, 0.em, 0.5.em)
+                    }
+
+                    "i" {
+                        fontSize = 0.75.em
+                        display = Display.block
+                        textAlign = TextAlign.left
+                        padding(0.em, 0.7.em)
+                        color = Color.gray
                     }
                 }
             }
@@ -61,18 +71,18 @@ class Speakers : RComponent<Speakers.Props, RState>() {
             for (id in speakers.filter { it.value.featured }.keys.sorted()) {
                 a(href = "#/speakers/$id") {
                     img(src = "speakers/$id.jpg") {}
-                    b {
-                        +speakers[id]!!.name
-                    }
+                    val speaker = speakers.getValue(id)
+                    b { +speaker.name }
+                    i { speaker.company?.let { +it } ?: attrs.unsafe { +"&nbsp;" } }
                 }
             }
 
             for (id in speakers.filter { it.value.featured.not() } .keys.sorted()) {
                 a(href = "#/speakers/$id") {
                     img(src = "speakers/$id.jpg") {}
-                    b {
-                        +speakers[id]!!.name
-                    }
+                    val speaker = speakers.getValue(id)
+                    b { +speaker.name }
+                    i { speaker.company?.let { +it } ?: attrs.unsafe { +"&nbsp;" } }
                 }
             }
 

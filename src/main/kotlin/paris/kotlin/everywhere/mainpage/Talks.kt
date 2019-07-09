@@ -23,7 +23,6 @@ class Talks : RComponent<Talks.Props, RState>() {
             val talk = talks[id]!!
 
             b { +talk.title }
-//            hr {}
             i {
                 +talk.speakers.map { speakers.getValue(it).name }.joinToString()
             }
