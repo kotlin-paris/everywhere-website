@@ -33,7 +33,7 @@ val speakers = listOf(
     Speaker(
         id = "geoffrey-metais",
         name = "Geoffrey Métais",
-        company = "VideoLan",
+        company = "VideoLAN",
         description = "Lead Android developer at VideoLAN and Videolabs.",
         talks = listOf("workshop-coroutines")
     ),
