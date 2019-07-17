@@ -41,11 +41,15 @@ class Contact : RComponent<Contact.Props, RState>() {
                 }
             }
 
-            a(href = "https://twitter.com/kotlin_paris") {
+            a(href = "https://twitter.com/kotlin_paris", target = "_blank") {
                 img(alt = "Twitter", src = "twitter.svg") {}
             }
 
-            a(href = "mailto:everywhere@kotlin.paris") {
+            a(href = "https://www.linkedin.com/company/kotlin-everywhere-paris", target = "_blank") {
+                img(alt = "LinkedIn", src = "linkedin.svg") {}
+            }
+
+            a(href = "mailto:everywhere@kotlin.paris", target = "_blank") {
                 img(alt = "E-mail", src = "email.svg") {}
             }
         }

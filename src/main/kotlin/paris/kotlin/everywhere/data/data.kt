@@ -6,6 +6,8 @@ data class Speaker(
     val company: String? = null,
     val description: String,
     val talks: List<String> = emptyList(),
+    val twitter: String? = null,
+    val webSite: String? = null,
     val featured: Boolean = false
 )
 
@@ -28,6 +30,7 @@ val speakers = listOf(
             From 2016 to 2017 I was writing a Master thesis together with Kotlin team, which results were used later as foundation for a language feature known now as Kotlin Contracts. In Kotlin Team, my main field of interest is compiler's frontend: code analysis, type inference, etc. Currently I'm actively working on improving multiplatform projects support in the compiler and IDE.            
         """.trimIndent(),
         talks = listOf("multiplatform-kotlin13"),
+        twitter = "dsavvinov",
         featured = true
     ),
     Speaker(
@@ -35,12 +38,15 @@ val speakers = listOf(
         name = "Geoffrey Métais",
         company = "VideoLAN",
         description = "Lead Android developer at VideoLAN and Videolabs.",
+        twitter = "geoffreymetais",
+        webSite = "https://geoffreymetais.github.io/",
         talks = listOf("workshop-coroutines")
     ),
     Speaker(
         id = "louis-cad",
         name = "Louis CAD",
         description = "Android & Kotlin Dev. Efficiency before performance. Bike commuter, velomobile enthusiast.",
+        twitter = "Louis_CAD",
         talks = listOf("workshop-coroutines")
     ),
     Speaker(
@@ -55,6 +61,8 @@ val speakers = listOf(
         name = "Salomon Brys",
         company = "Kodein Koders",
         description = "Passionné de Kotlin depuis que Kotlin il y a, Salomon est le fondateur de Kodein Koders et du Kodein Framework. Fortement implanté dans la philosophie Open-Source, il se dédie à la création de librairie et d'outils pour rendre la programmation plus facile, sure, et fun. Il est aussi addict aux jeux de sociétés, et adore piloter des avions de loisir.",
+        twitter = "salomonbrys",
+        webSite = "https://kodein.net",
         talks = listOf("workshop-multiplatform")
     ),
     Speaker(
@@ -63,6 +71,8 @@ val speakers = listOf(
         company = "Pivotal",
         description = "Sébastien est committer Spring Framework chez Pivotal. Il travaille principalement sur le support de Kotlin des différents projets Spring, ainsi que sur les sujets Web et Reactive. Il a créé le project Spring Fu et est également membre de l'équipe qui organise la conférence MiXiT.",
         talks = listOf("spring-kotlin"),
+        twitter = "sdeleuze",
+        webSite = "https://spring.io/team/sdeleuze",
         featured = true
     )
 ).associateBy { it.id }

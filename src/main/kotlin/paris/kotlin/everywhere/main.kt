@@ -2,14 +2,12 @@ package paris.kotlin.everywhere
 
 import kotlinx.css.*
 import kotlinx.css.properties.TextDecoration
-import kotlinx.css.properties.boxShadow
 import kotlinx.css.properties.s
 import kotlinx.css.properties.transition
 import react.dom.render
 import styled.StyledComponents
 import styled.injectGlobal
 import kotlin.browser.document
-import kotlin.browser.window
 
 val Color.Companion.keYellow get() = Color("#fff582")
 

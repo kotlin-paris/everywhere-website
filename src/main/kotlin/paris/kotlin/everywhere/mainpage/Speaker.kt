@@ -43,7 +43,17 @@ class Speaker : RComponent<Speaker.Props, RState>() {
                     fontWeight = FontWeight.normal
                 }
 
-                "p" {
+                "p.links" {
+                    paddingTop = 0.5.em
+
+                    "img" {
+                        height = 2.em
+                        marginBottom = 0.em
+                        padding(0.em, 1.em)
+                    }
+                }
+
+                "p.text" {
                     paddingTop = 0.8.em
                     alignSelf = Align.stretch
                     fontSize = 0.9.em
@@ -57,7 +67,7 @@ class Speaker : RComponent<Speaker.Props, RState>() {
                     margin(0.8.em, 0.em)
                 }
 
-                "a" {
+                "p.talks" {
                     display = Display.block
                     alignSelf = Align.flexStart
                 }
@@ -66,15 +76,28 @@ class Speaker : RComponent<Speaker.Props, RState>() {
             img(src = "speakers/${speaker.id}.jpg") {}
             h3 { +speaker.name }
             speaker.company?.let { h4 { +it } }
-            p { +speaker.description }
+            if (speaker.twitter != null || speaker.webSite != null) {
+                p("links") {
+                    speaker.twitter?.let {
+                        a(href = "https://twitter.com/$it", target = "_blank") { img(src = "twitter.svg") {} }
+                    }
+                    speaker.webSite?.let {
+                        a(href = it, target = "_blank") { img(src = "link.svg") {} }
+                    }
+                }
+            }
+            p("text") { +speaker.description }
 
-            speaker.talks.mapNotNull { talks[it] }.forEach { talk ->
-                hr {}
-                a(href = "#/agenda/${talk.id}") {
-                    b {
-                        if (talk.isWorkshop)
-                            +"Workshop "
-                        +talk.title
+            hr {}
+
+            p("talks") {
+                speaker.talks.mapNotNull { talks[it] }.forEach { talk ->
+                    a(href = "#/agenda/${talk.id}") {
+                        b {
+                            if (talk.isWorkshop)
+                                +"Workshop "
+                            +talk.title
+                        }
                     }
                 }
             }
