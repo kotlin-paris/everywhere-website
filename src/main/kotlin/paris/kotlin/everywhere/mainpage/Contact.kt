@@ -45,6 +45,10 @@ class Contact : RComponent<Contact.Props, RState>() {
                 img(alt = "Twitter", src = "twitter.svg") {}
             }
 
+            a(href = "https://www.reddit.com/r/Kotlin/comments/cf5tm6/kotlineverywhere_paris/", target = "_blank") {
+                img(alt = "Reddit", src = "reddit.svg") {}
+            }
+
             a(href = "https://www.linkedin.com/company/kotlin-everywhere-paris", target = "_blank") {
                 img(alt = "LinkedIn", src = "linkedin.svg") {}
             }

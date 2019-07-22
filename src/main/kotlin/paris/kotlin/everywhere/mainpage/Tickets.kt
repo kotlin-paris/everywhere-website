@@ -44,7 +44,7 @@ class Tickets : RComponent<RProps, RState>() {
             }
 
             +"Réservez votre place "
-            a(href="https://www.eventbrite.fr/e/billets-kotlineverywhere-paris-2019-64962254853") { +"SUPER EARLY BIRD" }
+            a(href="https://www.eventbrite.fr/e/billets-kotlineverywhere-paris-2019-64962254853") { +"EARLY BIRD" }
             +" dès aujourd'hui !"
         }
     }
