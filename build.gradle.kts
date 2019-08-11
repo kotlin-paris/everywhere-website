@@ -1,56 +1,35 @@
-//import org.jetbrains.kotlin.gradle.frontend.webpack.WebPackExtension
-//import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
+import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 
-plugins {
-    kotlin("js") version "1.3.41"
-//    id("org.jetbrains.kotlin.frontend") version "0.0.45"
-//    id("kotlin-dce-js")
-}
-
-repositories {
-    maven( url = "https://kotlin.bintray.com/kotlin-js-wrappers")
-    jcenter()
-}
-
-kotlin {
-    target {
-        browser()
-
-        compilations["main"].kotlinOptions {
-            moduleKind = "commonjs"
-        }
+buildscript {
+    repositories {
+        maven(url = "https://dl.bintray.com/kotlin/kotlin-eap")
+        jcenter()
     }
 
-    sourceSets["main"].dependencies {
-        implementation(kotlin("stdlib-js"))
-
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.2.2")
-
-        val wrapperVersion = "pre.77-kotlin-1.3.41"
-
-        implementation("org.jetbrains:kotlin-react-dom:16.6.0-$wrapperVersion")
-        implementation("org.jetbrains:kotlin-react-router-dom:4.3.1-$wrapperVersion")
-        implementation("org.jetbrains:kotlin-styled:1.0.0-$wrapperVersion")
-
-        implementation(npm("react", "^16.6.0"))
-        implementation(npm("react-dom", "^16.6.0"))
-        implementation(npm("react-router", "^4.3.1"))
-        implementation(npm("react-router-dom", "^4.3.1"))
-
-        implementation(npm("css-in-js-utils", "^2.0.1"))
-        implementation(npm("inline-style-prefixer", "^5.0.1"))
-        implementation(npm("styled-components", "^3.4.6"))
-
-        implementation(npm("core-js", "^3.0.0"))
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.50-eap-54")
     }
 }
 
-task<Sync>("copyResources") {
-    group = "build"
-    dependsOn("browserWebpack")
-
-    from("src/main/resources", "$buildDir/libs/${project.name}.js")
-    into("$projectDir/docs")
+subprojects {
+    repositories {
+        maven(url = "https://dl.bintray.com/kotlin/kotlin-eap")
+        maven( url = "https://kotlin.bintray.com/kotlin-js-wrappers")
+        jcenter()
+    }
 }
 
-tasks.getByName("assemble").dependsOn("copyResources")
+evaluationDependsOn(":WEB")
+
+task<Sync>("buildDocs") {
+    val processReouces = project(":WEB").tasks["processResources"]
+    val browserWebpack = project(":WEB").tasks["browserWebpack"]
+
+    dependsOn(processReouces, browserWebpack)
+
+    into(rootDir.resolve("docs"))
+
+    from(processReouces.outputs.files)
+
+    from((browserWebpack as KotlinWebpack).archiveFile)
+}
