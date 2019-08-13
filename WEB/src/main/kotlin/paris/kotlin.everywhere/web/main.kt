@@ -1,21 +1,17 @@
 package paris.kotlin.everywhere.web
 
-import paris.kotlin.everywhere.MainPage
+import paris.kotlin.everywhere.AppProps
 import paris.kotlin.everywhere.app
+import paris.kotlin.everywhere.utils.fchild
+import paris.kotlin.everywhere.utils.plus
+import paris.kotlin.everywhere.webApp
 import react.dom.hydrate
-import react.dom.render
 import react.router.dom.hashRouter
 import react.router.dom.route
 import kotlin.browser.document
 
 fun main() {
     hydrate(document.getElementById("app")) {
-        hashRouter {
-            route<MainPage.Props>("/:section?/:id?") {
-                val params = it.match.params
-                params.isStatic = false
-                app(params)
-            }
-        }
+        fchild(webApp)
     }
 }

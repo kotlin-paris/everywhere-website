@@ -1,4 +1,4 @@
 
 rootProject.name = "KEP-Website"
 
-include(":KEP2019", ":WEB", ":SSR")
+include(":KEP2019", ":WEB", ":DEV", ":SSR")

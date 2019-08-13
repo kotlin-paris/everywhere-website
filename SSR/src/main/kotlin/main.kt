@@ -1,7 +1,8 @@
-import kotlinext.js.jsObject
 import kotlinx.html.*
 import kotlinx.html.stream.createHTML
 import paris.kotlin.everywhere.app
+import paris.kotlin.everywhere.utils.fchild
+import paris.kotlin.everywhere.utils.invoke
 import react.buildElement
 import react_dom.server.renderToString
 import styled_components.ServerStyleSheet
@@ -9,7 +10,7 @@ import styled_components.ServerStyleSheet
 fun main() {
     val sheet = ServerStyleSheet()
 
-    val appStr = renderToString(sheet.collectStyles(buildElement { app(jsObject { isStatic = true }) }!!))
+    val appStr = renderToString(sheet.collectStyles(buildElement { fchild(app { isStatic = true }) }!!))
 
     val html = createHTML().html {
         lang = "fr"
