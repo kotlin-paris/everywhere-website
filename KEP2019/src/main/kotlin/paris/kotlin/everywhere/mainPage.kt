@@ -14,6 +14,16 @@ interface HasAnchor {
     var scrollTo: RMutableRef<HTMLElement?>
 }
 
+private data class MainPageState(val previousSection: String?, val previousId: String?) {
+    sealed class Action {
+        data class Move(val section: String?, val id: String?) : Action()
+    }
+
+    fun dispatch(action: Action) = when (action) {
+        is Action.Move -> copy(previousSection = action.section, previousId = action.id)
+    }
+}
+
 val mainPage by functionalComponent<AppProps> {
     val anchors = listOf("agenda", "sponsors", "speakers", "talks", "contact").associateWith { useRef<HTMLElement?>(null) }
 
@@ -31,18 +41,17 @@ val mainPage by functionalComponent<AppProps> {
         }
     }
 
-    var previousSection by useState(it.section)
-    var previousId by useState(it.id)
+    val (state, dispatch) = useReducer(MainPageState::dispatch, MainPageState(null, null))
+
     useEffect(listOf(it.section, it.id)) {
-        if (previousSection != it.section) {
-            if (previousId == null && it.id == null) {
+        if (state.previousSection != it.section) {
+            if (state.previousId == null && it.id == null) {
                 val offset = getOffset(it.section)
                 if (offset != -1)
                     window.scrollTo(ScrollToOptions(0.0, offset.toDouble(), ScrollBehavior.SMOOTH))
             }
         }
-        previousSection = it.section
-        previousId = it.id
+        dispatch(MainPageState.Action.Move(it.section, it.id))
     }
 
     fchild(popup {

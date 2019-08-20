@@ -29,9 +29,9 @@ class StateDelegate<T>(state: Pair<T, RSetState<T>>) : ReadWriteProperty<Any?, T
 
 operator fun <T> Pair<T, RSetState<T>>.provideDelegate(thisRef: Any?, property: KProperty<*>) = StateDelegate(this)
 
-fun <P> RBuilder.renderChild(rc: RBuilder.(P) -> Unit) {
-    childList += { p: P -> buildElement { rc(p) } }
-}
+//fun <P> RBuilder.renderChild(rc: RBuilder.(P) -> Unit) {
+//    childList += { p: P -> buildElement { rc(p) } }
+//}
 
 operator fun <P : RProps> FunctionalComponent<P>.invoke(propsBuilder: P.() -> Unit) = Pair(this, jsObject(propsBuilder))
 operator fun <P : RProps> FunctionalComponent<P>.plus(props: P) = Pair(this, props)
