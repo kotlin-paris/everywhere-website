@@ -4,9 +4,14 @@ import kotlinx.css.*
 import kotlinx.css.properties.*
 import kotlinx.html.js.onClickFunction
 import paris.kotlin.everywhere.utils.getValue
+import paris.kotlin.everywhere.utils.provideDelegate
 import react.RProps
+import react.dom.style
 import react.functionalComponent
+import react.useEffect
+import react.useState
 import styled.css
+import styled.inlineStyles
 import styled.styledA
 import styled.styledDiv
 import kotlin.browser.window
@@ -20,19 +25,15 @@ interface OverlayProps : RProps {
 
 val overlay by functionalComponent<OverlayProps> { props ->
 
+    var hasRendered by useState(false)
+    useEffect(listOf(hasRendered)) { hasRendered = true }
+
+    if (!hasRendered)
+        return@functionalComponent
+
     styledDiv {
-        css {
+        this.inlineStyles {
             if (props.transitionState == TransitionState.EXITED) visibility = Visibility.hidden
-            position = Position.fixed
-            top = 0.px
-            left = 0.px
-            zIndex = 100
-            width = 100.pct
-            height = 100.pct
-            backgroundColor = Color("#00000088")
-
-            transition("opacity", 0.3.s)
-
             when {
                 props.transitionState.isExit -> {
                     opacity = 0.0
@@ -42,12 +43,37 @@ val overlay by functionalComponent<OverlayProps> { props ->
                 }
             }
         }
+
+        css {
+            position = Position.fixed
+            top = 0.px
+            left = 0.px
+            zIndex = 100
+            width = 100.pct
+            height = 100.pct
+            backgroundColor = Color("#00000088")
+
+            transition("opacity", 0.3.s)
+        }
     }
 
     styledDiv {
-        css {
+        inlineStyles {
             if (props.transitionState == TransitionState.EXITED) visibility = Visibility.hidden
+            when {
+                props.transitionState.isExit -> {
+                    opacity = 0.0
+                    transform {
+                        translate(0.px, (-30).px)
+                    }
+                }
+                props.transitionState.isEnter -> {
+                    opacity = 1.0
+                }
+            }
+        }
 
+        css {
             position = Position.fixed
             top = 0.px
             left = 0.px
@@ -60,18 +86,6 @@ val overlay by functionalComponent<OverlayProps> { props ->
 
             transition("transform", 0.4.s)
             transition("opacity", 0.3.s)
-
-            when {
-                props.transitionState.isExit -> {
-                    opacity = 0.0
-                    transform {
-                        translate(0.px, (-30).px)
-                    }
-                }
-                props.transitionState.isEnter -> {
-                    opacity = 1.0
-                }
-            }
         }
 
         attrs {

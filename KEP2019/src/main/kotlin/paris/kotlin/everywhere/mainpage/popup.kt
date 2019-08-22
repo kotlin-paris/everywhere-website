@@ -66,7 +66,7 @@ private data class PopupState(val section: String?, val id: String?, val previou
     fun apply(action: Action): PopupState = when (action) {
         is Action.Move -> copy(section = action.section, id = action.id)
         is Action.UpdateSection -> copy(previousSection = action.section)
-    }.also { println(action) }
+    }
 
     val popupId = "$section/$id"
 }
@@ -80,7 +80,7 @@ val popup by functionalComponent<PopupProps> {
 
     val transitionState = useTransition(show, 350)
 
-    if (show && state.section != it.section && it.id != state.id) {
+    if (show && (state.section != it.section || it.id != state.id)) {
         dispatch(PopupState.Action.Move(it.section, it.id))
     }
 

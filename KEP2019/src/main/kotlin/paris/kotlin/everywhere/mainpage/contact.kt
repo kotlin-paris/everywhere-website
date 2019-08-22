@@ -2,6 +2,7 @@ package paris.kotlin.everywhere.mainpage
 
 
 import kotlinx.css.*
+import kotlinx.css.properties.boxShadowInset
 import paris.kotlin.everywhere.HasAnchor
 import paris.kotlin.everywhere.utils.getValue
 import react.RProps
@@ -16,19 +17,11 @@ interface ContactProps: RProps, HasAnchor
 
 val contact by functionalComponent<ContactProps> {
 
-    styledH1 {
+    styledDiv {
         ref = it.scrollTo
         css {
-            textAlign = TextAlign.center
-            color = Color.silver
-            paddingTop = 1.em
-        }
-
-        +"Contact"
-    }
-
-    styledDiv {
-        css {
+            backgroundColor = Color.silver
+            boxShadowInset(Color.black, blurRadius = 3.px)
             display = Display.flex
             flexDirection = FlexDirection.row
             justifyContent = JustifyContent.center

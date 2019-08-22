@@ -25,7 +25,7 @@ private data class MainPageState(val previousSection: String?, val previousId: S
 }
 
 val mainPage by functionalComponent<AppProps> {
-    val anchors = listOf("agenda", "sponsors", "speakers", "talks", "contact").associateWith { useRef<HTMLElement?>(null) }
+    val anchors = listOf("speakers", "sponsors", "agenda", "contact").associateWith { useRef<HTMLElement?>(null) }
 
     fun getOffset(anchor: String?): Int {
         anchor ?: return 100
@@ -65,11 +65,9 @@ val mainPage by functionalComponent<AppProps> {
 
     fchild(talkingPoints)
 
-    fchild(workshops {
-        scrollTo = anchors.getValue("agenda")
+    fchild(speakers {
+        scrollTo = anchors.getValue("speakers")
     })
-
-    fchild(agenda)
 
     fchild(tickets)
 
@@ -77,12 +75,8 @@ val mainPage by functionalComponent<AppProps> {
         scrollTo = anchors.getValue("sponsors")
     })
 
-    fchild(speakers {
-        scrollTo = anchors.getValue("speakers")
-    })
-
-    fchild(talks {
-        scrollTo = anchors.getValue("talks")
+    fchild(agenda {
+        scrollTo = anchors.getValue("agenda")
     })
 
     fchild(tickets)

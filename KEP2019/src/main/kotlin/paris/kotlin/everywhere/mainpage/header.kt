@@ -179,12 +179,10 @@ val header by functionalComponent<HeaderProps> {
 
                 +"BILLETS"
             }
-            a(href = "#/agenda") { +"AGENDA" }
-            a(href = "#/sponsors") { +"SPONSORS" }
             a(href = "#/speakers") { +"SPEAKERS" }
-            a(href = "#/talks") { +"TALKS" }
+            a(href = "#/sponsors") { +"SPONSORS" }
+            a(href = "#/agenda") { +"AGENDA" }
             a(href = "#/contact") { +"CONTACT" }
-            a(href = "https://forms.gle/R9vvrErsGcfepC2e6") { +"CALL 4 PAPERS" }
         }
 
         fchild(logo {

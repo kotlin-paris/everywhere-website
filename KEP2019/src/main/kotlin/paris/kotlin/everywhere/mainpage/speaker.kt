@@ -68,6 +68,11 @@ val speaker by functionalComponent<SpeakerProps> {
             "p.talks" {
                 display = Display.block
                 alignSelf = Align.flexStart
+
+                "a" {
+                    display = Display.block
+                    marginBottom = 0.75.em
+                }
             }
         }
 

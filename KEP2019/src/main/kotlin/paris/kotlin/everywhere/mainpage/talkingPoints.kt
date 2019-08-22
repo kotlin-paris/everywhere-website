@@ -57,6 +57,12 @@ val talkingPoints = functionalComponent<RProps> {
             span { +"conférences" }
         }
 
+        h2 {
+            +"2"
+            br {}
+            span { +"codelabs" }
+        }
+
     }
 
 }

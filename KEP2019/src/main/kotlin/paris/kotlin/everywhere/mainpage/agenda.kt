@@ -5,308 +5,186 @@ import kotlinx.css.*
 import kotlinx.css.properties.border
 import kotlinx.css.properties.boxShadow
 import kotlinx.html.P
+import paris.kotlin.everywhere.HasAnchor
 import paris.kotlin.everywhere.utils.getValue
 import react.*
-import react.dom.RDOMBuilder
-import react.dom.div
-import react.dom.h3
-import react.dom.p
+import react.dom.*
 import styled.css
 import styled.styledDiv
 
-private fun CSSBuilder.track(big: Boolean) {
-    width = if (big) 40.pct else 70.pct
-    position = Position.absolute
-    top = 0.px
-    bottom = 0.px
-    border(2.px, BorderStyle.solid, Color.silver)
-    color = Color.silver
-    borderRadius = 0.5.em
+private fun RBuilder.renderTalk(id: String) {
+    if (id.isEmpty()) {
+        a(classes = "soon") {
+            b { +"En cours..." }
+        }
+        return
+    }
 
-    "h3" {
-        textAlign = TextAlign.center
-        marginTop = 0.5.em
+    a(href="#/agenda/$id") {
+        val talk = paris.kotlin.everywhere.data.talks[id]!!
+
+        if (talk.isWorkshop)
+            +"Workshop"
+
+        b { +talk.title }
+        i {
+            +talk.speakers.map { paris.kotlin.everywhere.data.speakers.getValue(it).name }.joinToString()
+        }
     }
 }
 
-private fun CSSBuilder.entryLine(big: Boolean) {
-    display = Display.flex
-    flexDirection = FlexDirection.row
-    alignItems = Align.center
-    justifyContent = JustifyContent.flexEnd
-    margin(1.em, 0.em)
+interface AgendaProps: RProps, HasAnchor
 
-    "h3" {
-        color = Color.white
-        textAlign = TextAlign.left
-        flexGrow = 1.0
-    }
+val agenda by functionalComponent<AgendaProps> {
 
-    "p" {
-        textAlign = TextAlign.center
-        padding(1.em)
-    }
+    styledDiv {
+        ref = it.scrollTo
+        css {
+            margin(LinearDimension.auto)
+            paddingTop = 2.em
+            paddingBottom = 0.2.em
+            maxWidth = 51.em
 
-    "div.entry" {
-        boxShadow(Color.black, blurRadius = 3.px)
-        borderRadius = 0.4.em
-        zIndex = 1
-        backgroundColor = Color.whiteSmoke
+            "h3" {
+                color = Color.white
+                width = 4.em
+            }
 
-        + "event" {
-            width = if (big) 88.pct else 76.pct
-        }
+            "div.line" {
+                display = Display.flex
+                flexDirection = FlexDirection.row
+                alignItems = Align.center
+                margin(1.5.em, 0.em)
 
-        + "talk" {
-            width = 36.pct
-            margin(0.px, 4.pct, 0.em, 4.pct)
+                media("(max-width: 850px)") {
+                    flexDirection = FlexDirection.column
+                }
 
-            + "small" {
-                width = 64.pct
-                margin(0.px, 6.pct, 0.em, 6.pct)
+                "a" {
+                    display = Display.flex
+                    flexDirection = FlexDirection.column
+                    justifyContent = JustifyContent.center
+                    boxShadow(Color.black, blurRadius = 3.px)
+                    borderRadius = 0.4.em
+                    backgroundColor = Color.whiteSmoke
+                    margin(0.em, 0.75.em)
+                    padding(1.em)
+                    textAlign = TextAlign.left
+                    width = 12.em
+                    height = 6.em
+
+                    media("(max-width: 850px)") {
+                        margin(0.75.em, 0.em)
+                    }
+
+                    hover {
+                        boxShadow(Color.black, blurRadius = 12.px)
+                    }
+
+                    "b" {
+                        flexGrow = 1.0
+                    }
+
+                    "i" {
+                        fontSize = 0.75.em
+                        display = Display.block
+                        textAlign = TextAlign.left
+                        paddingTop = 1.em
+                        color = Color.gray
+                    }
+
+                    +"soon" {
+                        color = Color.gray
+                    }
+                }
+
+                "p" {
+                    flexGrow = 1.0
+                    textAlign = TextAlign.center
+                    color = Color.white
+                    fontSize = 1.1.em
+                    padding(1.em)
+                }
             }
         }
-    }
 
-    "div.empty" {
-        width = 36.pct
-        margin(0.px, 4.pct, 0.em, 4.pct)
-
-        + "small" {
-            width = 64.pct
-            margin(0.px, 6.pct, 0.em, 6.pct)
-        }
-    }
-
-}
-
-private fun RBuilder.event(big: Boolean, time: String, inside: RDOMBuilder<P>.() -> Unit) {
-    styledDiv {
-        css {
-            entryLine(big)
-        }
-
-        h3 {
-            +time
-        }
-
-        div("entry event") {
+        div("line") {
+            h3 { +"8h20" }
             p {
-                inside()
+                +"Accueil des participants aux workshops & petit déjeuner"
             }
         }
-    }
-}
 
-private fun RBuilder.talk(time: String, talk: RDOMBuilder<P>.() -> Unit) {
-    styledDiv {
-        css {
-            entryLine(false)
+        div("line") {
+            h3 { +"09h00" }
+            renderTalk("workshop-coroutines")
+            renderTalk("workshop-multiplatform")
+            renderTalk("workshop-cloud")
         }
 
-        h3 {
-            +time
-        }
-
-        div("entry talk small") {
+        div("line") {
+            h3 { +"12h30" }
             p {
-                talk()
+                +"Accueil, buffet repas & networking"
             }
         }
-    }
-}
 
-private fun RBuilder.talks(time: String, talk1: RDOMBuilder<P>.() -> Unit, talk2: (RDOMBuilder<P>.() -> Unit)? = null) {
-    styledDiv {
-        css {
-            entryLine(true)
+        div("line") {
+            h3 { +"13h30" }
+            renderTalk("ouverture")
         }
 
-        h3 {
-            +time
+        div("line") {
+            h3 { +"14h00" }
+            renderTalk("spring")
+            renderTalk("declarative-ui")
         }
 
-        div("entry talk") {
+        div("line") {
+            h3 { +"15h00" }
             p {
-                talk1()
+                +"Rafraichissements & networking"
             }
         }
 
-        if (talk2 == null) {
-            div("empty") {}
-        } else {
-            div("entry talk") {
-                p {
-                    talk2()
-                }
-            }
+        div("line") {
+            h3 { +"15h20" }
+            renderTalk("")
+            renderTalk("native-lib")
+            renderTalk("")
         }
-    }
-}
 
-val agenda by functionalComponent<RProps> {
-    styledDiv {
-        css {
-            margin(1.em)
+        div("line") {
+            h3 { +"16h20" }
+            renderTalk("react")
+            renderTalk("androidx-coroutines")
         }
-        styledDiv {
-            css {
-                maxWidth = 51.em
-                position = Position.relative
-                margin(20.px, LinearDimension.auto, 60.px, LinearDimension.auto)
-                paddingTop = 2.em
-                paddingBottom = 0.2.em
 
-                media("(max-width: 700px)") {
-                    display = Display.none
-                }
-            }
-
-            styledDiv {
-                css {
-                    track(true)
-                    right = 46.pct
-                }
-                h3 {
-                    +"Amphithéatre"
-                }
-            }
-
-            styledDiv {
-                css {
-                    track(true)
-                    right = 2.pct
-                }
-                h3 {
-                    +"Salle 1"
-                }
-            }
-
-            event(true, "13h00") {
-                +"Accueil, networking & rafraichissements"
-            }
-
-            talks(
-                "14h00",
-                { +"Ouverture" }
-            )
-
-            talks(
-                "14h30",
-                { +"Conférence" },
-                { +"Conférence" }
-            )
-
-            talks(
-                "15h30",
-                { +"Conférence" },
-                { +"Conférence" }
-            )
-
-            event(true, "16h30") {
-                +"Networking & rafraichissements"
-            }
-
-            talks(
-                "17h00",
-                { +"Conférence" },
-                { +"Conférence" }
-            )
-
-            talks(
-                "18h00",
-                { +"Conférence" },
-                { +"Conférence" }
-            )
-
-            talks(
-                "19h00",
-                { +"Clôture" }
-            )
-
-            event(true, "19h30") {
-                +"Restauration, networking & rafraichissements"
+        div("line") {
+            h3 { +"16h50" }
+            p {
+                +"Rafraichissements & networking"
             }
         }
 
-        styledDiv {
-            css {
-                maxWidth = 28.em
-                position = Position.relative
-                margin(20.px, LinearDimension.auto, 60.px, LinearDimension.auto)
-                paddingTop = 2.em
-                paddingBottom = 0.2.em
-
-                media("(min-width: 700px)") {
-                    display = Display.none
-                }
-            }
-
-            styledDiv {
-                css {
-                    track(false)
-                    right = 3.pct
-                }
-                h3 {
-                    +"Amphithéatre"
-                }
-            }
-
-            event(false, "13h00") { +"Accueil, networking & rafraichissements" }
-
-            talk("14h00") { +"Ouverture" }
-
-            talk("14h30") { +"Conférence" }
-
-            talk("15h30") { +"Conférence" }
-
-            event(false, "16h30") {
-                +"Networking & rafraichissements !"
-            }
-
-            talk("17h00") { +"Conférence" }
-
-            talk("18h00") { +"Conférence" }
-
-            talk("19h00") { +"Clôture" }
-
-            event(false, "19h30") { +"Restauration, networking & rafraichissements" }
+        div("line") {
+            h3 { +"17h10" }
+            renderTalk("fullstack")
+            renderTalk("multiplatform-kotlin13")
+            renderTalk("")
         }
 
-        styledDiv {
-            css {
-                maxWidth = 28.em
-                position = Position.relative
-                margin(20.px, LinearDimension.auto, 60.px, LinearDimension.auto)
-                paddingTop = 2.em
-                paddingBottom = 0.2.em
+        div("line") {
+            h3 { +"18h10" }
+            renderTalk("")
+            renderTalk("study-lib-coroutines")
+        }
 
-                media("(min-width: 700px)") {
-                    display = Display.none
-                }
+        div("line") {
+            h3 { +"19h40" }
+            p {
+                +"Buffet & bières"
             }
-
-            styledDiv {
-                css {
-                    track(false)
-                    right = 3.pct
-                }
-                h3 {
-                    +"Salle 1"
-                }
-            }
-
-            talk("14h30") { +"Conférence" }
-
-            talk("15h30") { +"Conférence" }
-
-            event(false, "16h30") {
-                +"Networking & rafraichissements !"
-            }
-
-            talk("17h00") { +"Conférence" }
-
-            talk("18h00") { +"Conférence" }
         }
 
     }

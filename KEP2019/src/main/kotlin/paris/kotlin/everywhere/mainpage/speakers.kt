@@ -36,19 +36,9 @@ interface SpeakersProps: RProps, HasAnchor
 
 val speakers by functionalComponent<SpeakersProps> {
 
-    styledH1 {
+    styledDiv {
         ref = it.scrollTo
 
-        css {
-            textAlign = TextAlign.center
-            color = Color.silver
-            paddingTop = 1.em
-        }
-
-        +"Speakers"
-    }
-
-    styledDiv {
         css {
             display = Display.flex
             flexDirection = FlexDirection.row
