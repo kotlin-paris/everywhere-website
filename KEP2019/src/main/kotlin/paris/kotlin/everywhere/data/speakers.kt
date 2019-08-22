@@ -36,6 +36,7 @@ val speakers = listOf(
     Speaker(
         id = "louis-cad",
         name = "Louis CAD",
+        company = "Beepiz",
         description = "Android & Kotlin Dev. Efficiency before performance. Bike commuter, velomobile enthusiast.",
         twitter = "Louis_CAD",
         talks = listOf("workshop-coroutines")
