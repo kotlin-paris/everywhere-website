@@ -96,7 +96,7 @@ val popup by functionalComponent<PopupProps> {
 
         if (state.id != null) {
             when (state.section) {
-                "" -> {
+                "speakers" -> {
                     fchild(speaker {
                         this.id = state.id
                     })
