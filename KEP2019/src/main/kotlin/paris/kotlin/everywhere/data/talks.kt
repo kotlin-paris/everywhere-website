@@ -5,8 +5,14 @@ data class Talk(
     val title: String,
     val description: String,
     val speakers: List<String>,
-    val isWorkshop: Boolean = false
-)
+    val type: Type = Type.TALK
+) {
+    enum class Type(val prefix: String?) {
+        CODELAB("Codelab"),
+        TALK(null),
+        WORKSHOP("Workshop")
+    }
+}
 
 val talks = listOf(
     Talk(
@@ -14,8 +20,25 @@ val talks = listOf(
         title = "AndroidX + coroutines = <3",
         description = """
         """.trimIndent(),
-        speakers = listOf("geoffrey-metais"),
-        isWorkshop = true
+        speakers = listOf("geoffrey-metais")
+    ),
+    Talk(
+        id = "codelab-arrow",
+        title = "Programmation fonctionnelle avec Kotlin et Arrow-kt",
+        description = """
+            Connaître les facilités apportées par Arrow-kt qui permettent de faciliter l'écriture de programmes fonctionnelles avec Kotlin
+        """.trimIndent(),
+        speakers = listOf("riadh-mnasri"),
+        type = Talk.Type.CODELAB
+    ),
+    Talk(
+        id = "codelab-unknown",
+        title = "",
+        description = """
+            Codelab bientôt annoncé !
+        """.trimIndent(),
+        speakers = listOf(),
+        type = Talk.Type.CODELAB
     ),
     Talk(
         id = "declarative-ui",
@@ -42,6 +65,15 @@ val talks = listOf(
                 - Kotlin/JS et une implémentation interne de Redux pour le code client.
         """.trimIndent(),
         speakers = listOf("gaetan-zoritchak")
+    ),
+    Talk(
+        id = "gradle-dsl",
+        title = "Gradle Kotlin DSL, une alternative comme outil de release ?",
+        description = """
+            Gradle 5.0 est sorti avec de nombreuses fonctionnalités et en particulier avec le support de Kotlin DSL en 1.0.
+            Durant cette présentation, nous verrons les possibilités d'utiliser ce nouvel outil de scripting comme alternative à Fastlane, qui est actuellement utilisé chez Kapten.
+        """.trimIndent(),
+        speakers = listOf("lucien-guimaraes")
     ),
     Talk(
         id = "multiplatform-kotlin13",
@@ -117,6 +149,13 @@ val talks = listOf(
         speakers = listOf("louis-cad")
     ),
     Talk(
+        id = "workflows",
+        title = "Automatisez vos workflows avec Kotlin",
+        description = """
+        """.trimIndent(),
+        speakers = listOf("martin-bonnin")
+    ),
+    Talk(
         id = "workshop-coroutines",
         title = "Les coroutines en détail",
         description = """
@@ -125,7 +164,7 @@ val talks = listOf(
             À travers cette matinée, nous créerons ensemble une petite application qui nous permettra de mettre en pratique notre progression dans l'univers des coroutines. Cette application pourra être à votre choix en ligne de commande ou sur Android. Le seul prérequis est de connaître au choix le langage Java ou le langage Kotlin.
         """.trimIndent(),
         speakers = listOf("geoffrey-metais", "louis-cad"),
-        isWorkshop = true
+        type = Talk.Type.WORKSHOP
     ),
     Talk(
         id = "workshop-multiplatform",
@@ -137,7 +176,7 @@ val talks = listOf(
             Notez que bien qu'un MacBook est recommandé si vous souhaitez déployer sur iOS ; un PC sous linux ou windows vous permettra d'utiliser Kotlin/JVM, Kotlin/JS et Kotlin/Native.
         """.trimIndent(),
         speakers = listOf("salomon-brys"),
-        isWorkshop = true
+        type = Talk.Type.WORKSHOP
     ),
     Talk(
         id = "workshop-cloud",
@@ -148,6 +187,6 @@ val talks = listOf(
             Enfin, nous verrons comment intégrer d'autres librairies utilisant Kotlin et permettant d'architecturer notre code et facilitant grandement la gestion de notre base de données. En 3h30, vous aurez un serveur léger, puissant, lisible et sécurisé !
         """.trimIndent(),
         speakers = listOf("romain-boisselle"),
-        isWorkshop = true
+        type = Talk.Type.WORKSHOP
     )
 ).associateBy { it.id }

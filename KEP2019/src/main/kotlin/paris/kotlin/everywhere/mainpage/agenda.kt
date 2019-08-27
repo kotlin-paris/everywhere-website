@@ -6,6 +6,7 @@ import kotlinx.css.properties.border
 import kotlinx.css.properties.boxShadow
 import kotlinx.html.P
 import paris.kotlin.everywhere.HasAnchor
+import paris.kotlin.everywhere.data.Talk
 import paris.kotlin.everywhere.utils.getValue
 import react.*
 import react.dom.*
@@ -13,18 +14,10 @@ import styled.css
 import styled.styledDiv
 
 private fun RBuilder.renderTalk(id: String) {
-    if (id.isEmpty()) {
-        a(classes = "soon") {
-            b { +"En cours..." }
-        }
-        return
-    }
-
     a(href="#/agenda/$id") {
         val talk = paris.kotlin.everywhere.data.talks[id]!!
 
-        if (talk.isWorkshop)
-            +"Workshop"
+        talk.type.prefix?.let { small { +it } }
 
         b { +talk.title }
         i {
@@ -71,7 +64,7 @@ val agenda by functionalComponent<AgendaProps> {
                     padding(1.em)
                     textAlign = TextAlign.left
                     width = 12.em
-                    height = 6.em
+                    height = 6.8.em
 
                     media("(max-width: 850px)") {
                         margin(0.75.em, 0.em)
@@ -102,7 +95,7 @@ val agenda by functionalComponent<AgendaProps> {
                     flexGrow = 1.0
                     textAlign = TextAlign.center
                     color = Color.white
-                    fontSize = 1.1.em
+                    fontSize = 1.2.em
                     padding(1.em)
                 }
             }
@@ -111,7 +104,7 @@ val agenda by functionalComponent<AgendaProps> {
         div("line") {
             h3 { +"8h20" }
             p {
-                +"Accueil des participants aux workshops & petit déjeuner"
+                +"Accueil des workshopeurs & petit déjeuner"
             }
         }
 
@@ -125,7 +118,7 @@ val agenda by functionalComponent<AgendaProps> {
         div("line") {
             h3 { +"12h30" }
             p {
-                +"Accueil, buffet repas & networking"
+                +"Accueil & buffet repas"
             }
         }
 
@@ -143,15 +136,15 @@ val agenda by functionalComponent<AgendaProps> {
         div("line") {
             h3 { +"15h00" }
             p {
-                +"Rafraichissements & networking"
+                +"Pause & rafraichissements"
             }
         }
 
         div("line") {
             h3 { +"15h20" }
-            renderTalk("")
+            renderTalk("workflows")
             renderTalk("native-lib")
-            renderTalk("")
+            renderTalk("codelab-arrow")
         }
 
         div("line") {
@@ -163,7 +156,7 @@ val agenda by functionalComponent<AgendaProps> {
         div("line") {
             h3 { +"16h50" }
             p {
-                +"Rafraichissements & networking"
+                +"Pause & rafraichissements"
             }
         }
 
@@ -171,19 +164,19 @@ val agenda by functionalComponent<AgendaProps> {
             h3 { +"17h10" }
             renderTalk("fullstack")
             renderTalk("multiplatform-kotlin13")
-            renderTalk("")
+            renderTalk("codelab-unknown")
         }
 
         div("line") {
             h3 { +"18h10" }
-            renderTalk("")
+            renderTalk("gradle-dsl")
             renderTalk("study-lib-coroutines")
         }
 
         div("line") {
             h3 { +"19h40" }
             p {
-                +"Buffet & bières"
+                +"Buffet & bières !"
             }
         }
 

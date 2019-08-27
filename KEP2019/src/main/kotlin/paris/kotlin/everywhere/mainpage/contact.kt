@@ -11,7 +11,6 @@ import react.dom.img
 import react.functionalComponent
 import styled.css
 import styled.styledDiv
-import styled.styledH1
 
 interface ContactProps: RProps, HasAnchor
 
@@ -25,6 +24,7 @@ val contact by functionalComponent<ContactProps> {
             display = Display.flex
             flexDirection = FlexDirection.row
             justifyContent = JustifyContent.center
+            flexWrap = FlexWrap.wrap
             alignItems = Align.center
             padding(20.px)
 

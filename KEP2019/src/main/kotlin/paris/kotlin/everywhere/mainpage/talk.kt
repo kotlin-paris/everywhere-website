@@ -59,8 +59,8 @@ val talk by functionalComponent<TalkProps> {
         }
 
         h3 {
-            if (talk.isWorkshop) {
-                +"Workshop"
+            talk.type.prefix?.let {
+                +it
                 br {}
             }
             +talk.title

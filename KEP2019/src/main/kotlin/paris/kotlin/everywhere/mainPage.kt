@@ -5,7 +5,6 @@ import paris.kotlin.everywhere.mainpage.*
 import paris.kotlin.everywhere.utils.fchild
 import paris.kotlin.everywhere.utils.getValue
 import paris.kotlin.everywhere.utils.invoke
-import paris.kotlin.everywhere.utils.provideDelegate
 import react.*
 import kotlin.browser.window
 
@@ -25,7 +24,7 @@ private data class MainPageState(val previousSection: String?, val previousId: S
 }
 
 val mainPage by functionalComponent<AppProps> {
-    val anchors = listOf("speakers", "sponsors", "agenda", "contact").associateWith { useRef<HTMLElement?>(null) }
+    val anchors = listOf("", "sponsors", "agenda", "contact").associateWith { useRef<HTMLElement?>(null) }
 
     fun getOffset(anchor: String?): Int {
         anchor ?: return 100
@@ -66,7 +65,7 @@ val mainPage by functionalComponent<AppProps> {
     fchild(talkingPoints)
 
     fchild(speakers {
-        scrollTo = anchors.getValue("speakers")
+        scrollTo = anchors.getValue("")
     })
 
     fchild(tickets)
