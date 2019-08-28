@@ -19,6 +19,10 @@ val talks = listOf(
         id = "androidx-coroutines",
         title = "AndroidX + coroutines = <3",
         description = """
+            Le framework des coroutines est un outil révolutionnaire pour gérer l'asynchronisme et la concurrence.
+            L'intégration avec le SDK d'Android n'est pas forcément évident mais se fait très bien et apporte de nombreux bénéfices.
+            AndroidX apporte de nouveaux outils pour simplifier et améliorer cette intégration.
+            Apprenez comment gérer plus facilement l'asynchronisme dans vos applications.
         """.trimIndent(),
         speakers = listOf("geoffrey-metais")
     ),
@@ -35,7 +39,7 @@ val talks = listOf(
         id = "codelab-unknown",
         title = "",
         description = """
-            Codelab bientôt annoncé !
+            Bientôt annoncé !
         """.trimIndent(),
         speakers = listOf(),
         type = Talk.Type.CODELAB
@@ -152,6 +156,15 @@ val talks = listOf(
         id = "workflows",
         title = "Automatisez vos workflows avec Kotlin",
         description = """
+            Ce talk est un retour d'expérience sur la manière dont nous utilisons kotlin à toutes les étapes du développement de notre app Android chez Dailymotion:
+            
+            * sur les machines de dev, pour la gestion des pull requests, connection jira et déploiement avec un outil en ligne de commande utilisant Clikt.
+            * sur les serveurs de CI avec un runner kotlin qui execute la compilation, tests et envoi des artifacts.
+            * sur un servlet Google Cloud pour héberger nos artifacts et Kdoc.
+            * sur un cron pour monitorer les commentaires utilisateurs du Google Play.
+            * enfin, de manière générale, pour remplacer bash et perl par du kotlin partout grâce à kscript!
+            
+            Le but du talk n'est pas d'aller dans le détail de chaque technologie mais plus de montrer l'étendue des possibles. L'écosystème kotlin rend accessible un grand nombre de tâches.
         """.trimIndent(),
         speakers = listOf("martin-bonnin")
     ),
