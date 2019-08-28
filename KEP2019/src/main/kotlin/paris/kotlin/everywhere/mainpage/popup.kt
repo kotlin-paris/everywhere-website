@@ -72,20 +72,20 @@ private data class PopupState(val section: String?, val id: String?, val previou
 }
 
 
-val popup by functionalComponent<PopupProps> {
+val popup by functionalComponent<PopupProps> { props ->
 
-    val (state, dispatch) = useReducer(PopupState::apply, PopupState(it.section, it.id, it.section))
+    val (state, dispatch) = useReducer(PopupState::apply, PopupState(props.section, props.id, props.section))
 
-    val show = it.section != null && it.id != null
+    val show = props.section != null && props.id != null
 
     val transitionState = useTransition(show, 350)
 
-    if (show && (state.section != it.section || it.id != state.id)) {
-        dispatch(PopupState.Action.Move(it.section, it.id))
+    if (show && (state.section != props.section || props.id != state.id)) {
+        dispatch(PopupState.Action.Move(props.section, props.id))
     }
 
-    if (it.id == null && state.previousSection != it.section) {
-        dispatch(PopupState.Action.UpdateSection(it.section))
+    if (props.id == null && state.previousSection != props.section) {
+        dispatch(PopupState.Action.UpdateSection(props.section.coerceToNull()))
     }
 
     fchild(overlay{
