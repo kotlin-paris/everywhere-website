@@ -39,7 +39,7 @@ val sponsors by functionalComponent<SponsorsProps> {
                 padding(0.px, 1.em)
 
                 "a" {
-                    margin(1.em)
+                    margin(1.em, 1.5.em)
                     "img" {
                         maxWidth = 100.pct
                     }
@@ -48,30 +48,45 @@ val sponsors by functionalComponent<SponsorsProps> {
         }
 
         h1 {
-            +"Organisateurs"
+            +"Sponsor Platinum :"
         }
 
         div {
-            a(href = "https://kodein.net") {
-                styledImg(alt = "Kodein Koders", src = "kodein-logo.svg") {
-                    css { maxHeight = 70.px }
-                }
-            }
-            a(href = "https://epitech.eu") {
-                styledImg(alt = "Epitech", src = "epitech-logo.png") {
-                    css { maxHeight = 90.px }
+            a(href = "https://www.octo.com/") {
+                styledImg(alt = "Octo", src = "octo-logo.svg") {
+                    css {
+                        height = 8.em
+                        marginTop = 0.5.em
+                    }
                 }
             }
         }
 
         h1 {
-            +"Sponsors Silver"
+            +"Organisateurs :"
+        }
+
+        div {
+            a(href = "https://kodein.net") {
+                styledImg(alt = "Kodein Koders", src = "kodein-logo.svg") {
+                    css { height = 5.em }
+                }
+            }
+            a(href = "https://epitech.eu") {
+                styledImg(alt = "Epitech", src = "epitech-logo.png") {
+                    css { height = 6.5.em }
+                }
+            }
+        }
+
+        h1 {
+            +"Sponsors Silver :"
         }
 
         div {
             a(href = "https://kaibee.fr") {
                 styledImg(alt = "Keibee", src = "kaibee-logo.png") {
-                    css { maxHeight = 100.px }
+                    css { maxHeight = 7.5.em }
                 }
             }
         }
