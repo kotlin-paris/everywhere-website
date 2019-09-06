@@ -67,9 +67,21 @@ val sponsors by functionalComponent<SponsorsProps> {
         }
 
         div {
-            a(href = "https://epitech.eu") {
+            a(href = "https://www.malt.fr") {
                 styledImg(alt = "Malt", src = "malt-logo.svg") {
                     css { height = 7.5.em }
+                }
+            }
+        }
+
+        h1 {
+            +"Sponsors Silver :"
+        }
+
+        div {
+            a(href = "https://kaibee.fr") {
+                styledImg(alt = "Keibee", src = "kaibee-logo.png") {
+                    css { maxHeight = 7.5.em }
                 }
             }
         }
@@ -90,19 +102,6 @@ val sponsors by functionalComponent<SponsorsProps> {
                 }
             }
         }
-
-        h1 {
-            +"Sponsors Silver :"
-        }
-
-        div {
-            a(href = "https://kaibee.fr") {
-                styledImg(alt = "Keibee", src = "kaibee-logo.png") {
-                    css { maxHeight = 7.5.em }
-                }
-            }
-        }
-
     }
 
 }
