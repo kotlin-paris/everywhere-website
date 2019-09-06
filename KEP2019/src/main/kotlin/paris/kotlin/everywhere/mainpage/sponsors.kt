@@ -63,18 +63,30 @@ val sponsors by functionalComponent<SponsorsProps> {
         }
 
         h1 {
+            +"Sponsors Gold :"
+        }
+
+        div {
+            a(href = "https://epitech.eu") {
+                styledImg(alt = "Malt", src = "malt-logo.svg") {
+                    css { height = 7.5.em }
+                }
+            }
+        }
+
+        h1 {
             +"Organisateurs :"
         }
 
         div {
             a(href = "https://kodein.net") {
                 styledImg(alt = "Kodein Koders", src = "kodein-logo.svg") {
-                    css { height = 5.em }
+                    css { height = 4.5.em }
                 }
             }
             a(href = "https://epitech.eu") {
                 styledImg(alt = "Epitech", src = "epitech-logo.png") {
-                    css { height = 6.5.em }
+                    css { height = 5.5.em }
                 }
             }
         }
