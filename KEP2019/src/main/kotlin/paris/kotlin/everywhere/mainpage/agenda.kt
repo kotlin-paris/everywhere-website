@@ -164,7 +164,7 @@ val agenda by functionalComponent<AgendaProps> {
             h3 { +"17h10" }
             renderTalk("fullstack")
             renderTalk("multiplatform-kotlin13")
-            renderTalk("codelab-unknown")
+            renderTalk("codelab-spring")
         }
 
         div("line") {

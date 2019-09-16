@@ -36,10 +36,11 @@ val talks = listOf(
         type = Talk.Type.CODELAB
     ),
     Talk(
-        id = "codelab-unknown",
-        title = "",
+        id = "codelab-spring",
+        title = "Construire son back-end Kotlin/Spring Boot",
         description = """
-            Bientôt annoncé !
+            Depuis la version 5.0, Kotlin est officiellement supporté par Spring et nous pouvons donc profiter de tout cet univers et de cette communauté pour développer des back-ends robustes et performant dans notre langage préféré.  
+            Dans ce codelab, nous verrons comment construire nos premiers endpoints en quelques minutes grâce à Spring Boot, puis nous découvrirons comment tester, documenter et dockerizer notre application.
         """.trimIndent(),
         speakers = listOf(),
         type = Talk.Type.CODELAB

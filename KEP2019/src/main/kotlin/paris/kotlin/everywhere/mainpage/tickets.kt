@@ -43,8 +43,8 @@ val tickets by functionalComponent<RProps> {
             }
         }
 
-        +"Réservez votre place "
-        a(href="https://www.eventbrite.fr/e/billets-kotlineverywhere-paris-2019-64962254853") { +"EARLY BIRD" }
+        +"Réservez votre "
+        a(href="https://www.eventbrite.fr/e/billets-kotlineverywhere-paris-2019-64962254853") { +"PASS CONFÉRENCE" }
         +" dès aujourd'hui !"
     }
 }

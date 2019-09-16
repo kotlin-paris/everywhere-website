@@ -80,8 +80,14 @@ val sponsors by functionalComponent<SponsorsProps> {
 
         div {
             a(href = "https://kaibee.fr") {
-                styledImg(alt = "Keibee", src = "kaibee-logo.png") {
-                    css { maxHeight = 7.5.em }
+                styledImg(alt = "Kaibee", src = "kaibee-logo.png") {
+                    css { height = 7.5.em }
+                }
+            }
+
+            a(href = "https://www.joza-it.fr") {
+                styledImg(alt = "Joza IT", src = "joza-it-logo.svg") {
+                    css { height = 7.5.em }
                 }
             }
         }

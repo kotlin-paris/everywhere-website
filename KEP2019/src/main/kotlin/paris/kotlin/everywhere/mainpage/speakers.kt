@@ -47,7 +47,7 @@ val speakers by functionalComponent<SpeakersProps> {
             justifyContent = JustifyContent.center
             margin(1.em, LinearDimension.auto)
             paddingTop = 1.em
-            maxWidth = 60.em
+            maxWidth = 75.em
 
             "a" {
                 backgroundColor = Color.whiteSmoke
