@@ -88,15 +88,13 @@ val speakers = listOf(
         talks = listOf("native-lib")
     ),
     Speaker(
-        id = "romain-boisselle",
-        name = "Romain Boisselle",
-        company = "Kodein Koders",
+        id = "remi-dormoy",
+        name = "Rémi Dormoy",
+        company = "Octo Technology",
         description = """
-            Je suis un développeur backend depuis 8 ans, principalement en Java + Spring et freelance depuis un an, centré sur les architectures backend.
-            Je suis tombé amoureux de Kotlin il y a 4 ans, et l'utilise réellement en production depuis deux ans dans des projets backend. Java ne sera bientôt plus qu'un souvenir :)
-            Je suis également un père comblé, et adepte du zéro gaspillage.
+            Développeur mobile puis back-end chez Octo Technology, travail sur Kotlin et cherche à découvrir toutes les plateformes sur lesquelles il est possible de pousser ce langage.
         """.trimIndent(),
-        talks = listOf("workshop-cloud")
+        talks = listOf("codelab-spring")
     ),
     Speaker(
         id = "riadh-mnasri",
@@ -108,6 +106,17 @@ val speakers = listOf(
         twitter = "riadhmnasri",
         webSite = "https://www.linkedin.com/in/riadhmnasri/",
         talks = listOf("codelab-arrow")
+    ),
+    Speaker(
+        id = "romain-boisselle",
+        name = "Romain Boisselle",
+        company = "Kodein Koders",
+        description = """
+            Je suis un développeur backend depuis 8 ans, principalement en Java + Spring et freelance depuis un an, centré sur les architectures backend.
+            Je suis tombé amoureux de Kotlin il y a 4 ans, et l'utilise réellement en production depuis deux ans dans des projets backend. Java ne sera bientôt plus qu'un souvenir :)
+            Je suis également un père comblé, et adepte du zéro gaspillage.
+        """.trimIndent(),
+        talks = listOf("workshop-cloud")
     ),
     Speaker(
         id = "salomon-brys",

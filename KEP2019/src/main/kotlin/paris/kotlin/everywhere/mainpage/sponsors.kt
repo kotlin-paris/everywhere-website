@@ -55,7 +55,7 @@ val sponsors by functionalComponent<SponsorsProps> {
             a(href = "https://www.octo.com/") {
                 styledImg(alt = "Octo", src = "octo-logo.svg") {
                     css {
-                        height = 8.em
+                        height = 9.em
                         marginTop = 0.5.em
                     }
                 }
@@ -69,7 +69,13 @@ val sponsors by functionalComponent<SponsorsProps> {
         div {
             a(href = "https://www.malt.fr") {
                 styledImg(alt = "Malt", src = "malt-logo.svg") {
-                    css { height = 7.5.em }
+                    css { height = 6.5.em }
+                }
+            }
+
+            a(href = "https://www.kapten.com/fr/") {
+                styledImg(alt = "Kapten", src = "kapten-logo.svg") {
+                    css { height = 3.5.em ; padding(0.5.em) }
                 }
             }
         }
@@ -81,13 +87,19 @@ val sponsors by functionalComponent<SponsorsProps> {
         div {
             a(href = "https://kaibee.fr") {
                 styledImg(alt = "Kaibee", src = "kaibee-logo.png") {
-                    css { height = 7.5.em }
+                    css { height = 7.0.em }
                 }
             }
 
             a(href = "https://www.joza-it.fr") {
                 styledImg(alt = "Joza IT", src = "joza-it-logo.svg") {
-                    css { height = 7.5.em }
+                    css { height = 7.0.em }
+                }
+            }
+
+            a(href = "https://www.smile.eu/fr") {
+                styledImg(alt = "Smile", src = "smile-logo.svg") {
+                    css { height = 7.0.em }
                 }
             }
         }
@@ -99,7 +111,7 @@ val sponsors by functionalComponent<SponsorsProps> {
         div {
             a(href = "https://kodein.net") {
                 styledImg(alt = "Kodein Koders", src = "kodein-logo.svg") {
-                    css { height = 4.5.em }
+                    css { height = 5.0.em }
                 }
             }
             a(href = "https://epitech.eu") {

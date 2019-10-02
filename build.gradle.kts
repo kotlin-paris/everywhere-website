@@ -21,7 +21,13 @@ subprojects {
 
 evaluationDependsOn(":WEB")
 
+task<Delete>("deleteDocs") {
+    delete(rootDir.resolve("docs"))
+}
+
 task<Sync>("buildDocs") {
+    dependsOn("clean", "deleteDocs")
+
     val processReouces = project(":WEB").tasks["processResources"]
     val browserWebpack = project(":WEB").tasks["browserWebpack"]
 

@@ -42,7 +42,7 @@ val talks = listOf(
             Depuis la version 5.0, Kotlin est officiellement supporté par Spring et nous pouvons donc profiter de tout cet univers et de cette communauté pour développer des back-ends robustes et performant dans notre langage préféré.  
             Dans ce codelab, nous verrons comment construire nos premiers endpoints en quelques minutes grâce à Spring Boot, puis nous découvrirons comment tester, documenter et dockerizer notre application.
         """.trimIndent(),
-        speakers = listOf(),
+        speakers = listOf("remi-dormoy"),
         type = Talk.Type.CODELAB
     ),
     Talk(

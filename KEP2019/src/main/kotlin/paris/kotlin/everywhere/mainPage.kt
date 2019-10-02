@@ -1,6 +1,7 @@
 package paris.kotlin.everywhere
 
 import org.w3c.dom.*
+import paris.kotlin.everywhere.data.talks
 import paris.kotlin.everywhere.mainpage.*
 import paris.kotlin.everywhere.utils.coerceToNull
 import paris.kotlin.everywhere.utils.fchild
