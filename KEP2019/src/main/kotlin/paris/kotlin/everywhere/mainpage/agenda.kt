@@ -130,7 +130,7 @@ val agenda by functionalComponent<AgendaProps> {
         div("line") {
             h3 { +"14h00" }
             renderTalk("spring")
-            renderTalk("declarative-ui")
+            renderTalk("native-lib")
         }
 
         div("line") {
@@ -142,15 +142,15 @@ val agenda by functionalComponent<AgendaProps> {
 
         div("line") {
             h3 { +"15h20" }
+            renderTalk("declarative-ui")
             renderTalk("workflows")
-            renderTalk("native-lib")
             renderTalk("codelab-arrow")
         }
 
         div("line") {
             h3 { +"16h20" }
-            renderTalk("react")
             renderTalk("androidx-coroutines")
+            renderTalk("react")
         }
 
         div("line") {
@@ -174,7 +174,12 @@ val agenda by functionalComponent<AgendaProps> {
         }
 
         div("line") {
-            h3 { +"19h40" }
+            h3 { +"18h40" }
+            renderTalk("cloture")
+        }
+
+        div("line") {
+            h3 { +"19h00" }
             p {
                 +"Buffet & bières !"
             }

@@ -46,6 +46,14 @@ val talks = listOf(
         type = Talk.Type.CODELAB
     ),
     Talk(
+        id = "cloture",
+        title = "Clôture",
+        description = """
+            Un bilan de cette première édition, et quelques annonces pour la suivante !
+        """.trimIndent(),
+        speakers = emptyList()
+    ),
+    Talk(
         id = "declarative-ui",
         title = "Be aware, Declarative UI are taking over!",
         description = """

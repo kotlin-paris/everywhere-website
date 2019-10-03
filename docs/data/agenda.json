@@ -1,0 +1,79 @@
+[
+  {
+    "time": "8h20",
+    "title": "Accueil des workshopeurs & petit déjeuner"
+  },
+  {
+    "time": "9h00",
+    "talks": [
+      "workshop-coroutines",
+      "workshop-multiplatform",
+      "workshop-cloud"
+    ]
+  },
+  {
+    "time": "12h30",
+    "title": "Accueil & buffet repas"
+  },
+  {
+    "time": "13h30",
+    "talks": [
+      "ouverture"
+    ]
+  },
+  {
+    "time": "14h00",
+    "talks": [
+      "spring",
+      "native-lib"
+    ]
+  },
+  {
+    "time": "15h00",
+    "title": "Pause & rafraichissements"
+  },
+  {
+    "time": "15h20",
+    "talks": [
+      "declarative-ui",
+      "workflows",
+      "codelab-arrow"
+    ]
+  },
+  {
+    "time": "16h20",
+    "talks": [
+      "androidx-coroutines",
+      "react"
+    ]
+  },
+  {
+    "time": "16h50",
+    "title": "Pause & rafraichissements"
+  },
+  {
+    "time": "17h10",
+    "talks": [
+      "fullstack",
+      "multiplatform-kotlin13",
+      "codelab-spring"
+    ]
+  },
+  {
+    "time": "18h10",
+    "talks": [
+      "gradle-dsl",
+      "study-lib-coroutines"
+    ]
+  },
+  {
+    "time": "18h40",
+    "talks": [
+      "cloture"
+    ]
+  },
+  {
+    "time": "19h00",
+    "title": "Buffet & bières !"
+  }
+]
