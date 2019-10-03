@@ -1,0 +1,143 @@
+[
+  {
+    "id": "androidx-coroutines",
+    "title": "AndroidX + coroutines = <3",
+    "description": "Le framework des coroutines est un outil révolutionnaire pour gérer l'asynchronisme et la concurrence.\nL'intégration avec le SDK d'Android n'est pas forcément évident mais se fait très bien et apporte de nombreux bénéfices.\nAndroidX apporte de nouveaux outils pour simplifier et améliorer cette intégration.\nApprenez comment gérer plus facilement l'asynchronisme dans vos applications.",
+    "speakers": [
+      "geoffrey-metais"
+    ],
+    "type": "TALK"
+  },
+  {
+    "id": "codelab-arrow",
+    "title": "Programmation fonctionnelle avec Kotlin et Arrow-kt",
+    "description": "Connaître les facilités apportées par Arrow-kt qui permettent de faciliter l'écriture de programmes fonctionnelles avec Kotlin",
+    "speakers": [
+      "riadh-mnasri"
+    ],
+    "type": "CODELAB"
+  },
+  {
+    "id": "codelab-unknown",
+    "title": "",
+    "description": "Bientôt annoncé !",
+    "speakers": [],
+    "type": "CODELAB"
+  },
+  {
+    "id": "declarative-ui",
+    "title": "Be aware, Declarative UI are taking over!",
+    "description": "D'Android à iOS, en passant par le web, l'interface utilisateur s'écrit de plus en plus de manière déclarative à la place de fichiers XML ou de code impératif.\nPetit tour d'horizon sur cette nouvelle tendance sur toutes les plateformes de développement avec un focus sur Jetpack Compose.",
+    "speakers": [
+      "yacine-rezgui"
+    ],
+    "type": "TALK"
+  },
+  {
+    "id": "fullstack",
+    "title": "Kotlin Fullstack",
+    "description": "Dès le départ, Kotlin a été conçu pour être déployable dans divers contextes et plateformes: back et front, JVM, JS et natif.\nDans un de nos derniers projets web, nous avons profité de cette caractéristique pour utiliser Kotlin au maximum, dans toutes les couches de notre application.\nNous détaillerons l'architecture de ce projet lors de cette présentation, et comment nous avons utilisé des librairies multiplateformes pour partager du code entre le serveur et le navigateur.\n\nLes librairies et projets utilisés sont:\n    - xodus-dnq, pour définir le modèle de données et accéder à la base xodus,\n    - Ktor comme framework web,\n    - Kotlinx.hmtl pour le templating html, serveur et client,\n    - Kotlinx.serialization pour le partage d’état entre le serveur et le client,\n    - Kotlin/JS et une implémentation interne de Redux pour le code client.",
+    "speakers": [
+      "gaetan-zoritchak"
+    ],
+    "type": "TALK"
+  },
+  {
+    "id": "gradle-dsl",
+    "title": "Gradle Kotlin DSL, une alternative comme outil de release ?",
+    "description": "Gradle 5.0 est sorti avec de nombreuses fonctionnalités et en particulier avec le support de Kotlin DSL en 1.0.\nDurant cette présentation, nous verrons les possibilités d'utiliser ce nouvel outil de scripting comme alternative à Fastlane, qui est actuellement utilisé chez Kapten.",
+    "speakers": [
+      "lucien-guimaraes"
+    ],
+    "type": "TALK"
+  },
+  {
+    "id": "multiplatform-kotlin13",
+    "title": "Multiplatform Programming in Kotlin 1.3",
+    "description": "Kotlin Multiplatform is a language feature which provides the ability to share and re-use common code across different platforms. The very first iteration was announced in Kotlin 1.2, and since then, multiplatform technology has greatly evolved.\nIn this talk, we'll give a consistent, cumulative overview of the most recent features and changes in multiplatform projects support in Kotlin. Also, we'll explain why these changes were made and what new opportunities they unlock.\nThe talk is well-suited both for beginners who want to get an introduction into technology, and for advanced users who want to hear latest news and insights about multiplatform programming in Kotlin.",
+    "speakers": [
+      "dmitry-savvinov"
+    ],
+    "type": "TALK"
+  },
+  {
+    "id": "native-lib",
+    "title": "Créer une bibliothèque pour Android et iOS avec Kotlin/Native",
+    "description": "Le partage de code entre différentes plateformes est devenu une pratique de plus en plus utilisée dans le monde du développement mobile.\nGrace à Kotlin/Native nous pouvons mutualiser notre code d'une manière différente et le réutiliser afin de gagner en temps de développement.\nA travers mon POC \"Convertisseur de devise\" et un mini live coding nous apprendrons ensemble :\n    * comment configurer un projet avec Kotlin/Native\n    * comment mutualiser les différentes parties d'une application mobile\n    * comment organiser son code avec une variante de la clean architecture et le tester",
+    "speakers": [
+      "mohamed-bennis"
+    ],
+    "type": "TALK"
+  },
+  {
+    "id": "ouverture",
+    "title": "Ouverture",
+    "description": "Venez rencontrer le staff de la conférence et découvrir les dernières tendances Kotlin!",
+    "speakers": [],
+    "type": "TALK"
+  },
+  {
+    "id": "react",
+    "title": "Un site entièrement en Kotlin avec Kotlin-React",
+    "description": "Savez vous qu'il est possible d'écrire un site web entièrement en Kotlin ? Pas de HTML, pas de CSS, pas de JS. Que du Kotlin. Et en declarative UI, s'il vous plaît !\nDans cette présentation, nous plongerons dans le code du site web de la conférence, site static hébergé sur Github.\nNous verrons comment utiliser React en Kotlin, comment générer la page HTML hôte, comment intégrer du CSS directement dans les composants, et même comment accélérer le chargement en utilisant React-SSR (Server-Side Rendering).",
+    "speakers": [
+      "salomon-brys"
+    ],
+    "type": "TALK"
+  },
+  {
+    "id": "spring",
+    "title": "Quoi de neuf sur le support de Kotlin dans Spring ?",
+    "description": "La première partie de cette conférence donnera un aperçu de l'état de l'art du développement d'applications Spring Boot 2.2 avec Kotlin:\n    - Data classes immutables avec @ConfigurationProperties\n    - Tests avec JUnit 5 et Mockk\n    - La nouvelle DSL “router” pour Spring MVC\n    - Le support des Coroutines sur WebFlux, RSocket et Spring Data\n    - Les exemples de code en Kotlin dans la documentation de référence\n    - La DSL MockMvc\n    - Un rappel des bonnes pratiques (extensions, injection de dépendances via constructeur)\nLa seconde partie sera un live coding d'une application Spring Boot configurée avec Kofu, la DSL Kotlin actuellement développée dans l'incubateur Spring Fu que j'ai créé il y a quelques mois. Il s'agit d'une alternative à l'auto-configuration Spring Boot conçue pour configurer votre application de manière explicite en utilisant l'auto-complétion et des \"slices\" de configuration tout en supportant la plupart des fonctionnalités de Spring Boot.",
+    "speakers": [
+      "sebastien-deleuze"
+    ],
+    "type": "TALK"
+  },
+  {
+    "id": "study-lib-coroutines",
+    "title": "Étude d'une bibliothèque à base de coroutines",
+    "description": "Dans cette session, je vais vous montrer avec mon IDE comment j'ai pu faire une API super simple en partant d'une API type callback hell, et comment vous aussi vous pouvez vous libérer des complexités d'une API une bonne fois pour toutes grâce aux coroutines.\n\nNous étudieront la bibliothèque BleGattCoroutines pour Android qui permet de se connecter à un appareil Bluetooth Low Energy tel qu'un beacon, et de communiquer avec.\n\nPetite histoire :\nLes beacons sont des balises de localisation d'intérieur utilisant le Bluetooth Low Energy.\nIl y a 2 ans, j'ai eu besoin d'en configurer par programmation afin de semi-automatiser leur réglage et enregistrement.\nLe fournisseur de beacons fournissait un SDK non open-source, qu'il était tout de même possible de décompiler facilement car fait en Java et non obfusqué. Cela ne fut cependant pas nécessaire, j'ai déchanté dès que j'ai vu le code du sample où il y avait littéralement un warning toutes les 2 lignes, et une API dont la conception me repoussait.\nJ'ai alors fouillé dans la spécification open-source du protocole Eddystone utilisé par nos beacons, ai vu une lueur d'espoir, mais j'allais avoir besoin de l'API Bluetooth GATT d'Android, qui est un callback hell. C'était au moment où je débutais dans les coroutines. En une semaine, j'ai appris les Channel de kotlinx.coroutines et ai mis au point BleGattCoroutines, qui nous avons rendu open-source (Apache 2). La semaine d'après, j'ai programmé les beacons sur cette base et suis devenu fan des coroutines depuis.",
+    "speakers": [
+      "louis-cad"
+    ],
+    "type": "TALK"
+  },
+  {
+    "id": "workflows",
+    "title": "Automatisez vos workflows avec Kotlin",
+    "description": "Ce talk est un retour d'expérience sur la manière dont nous utilisons kotlin à toutes les étapes du développement de notre app Android chez Dailymotion:\n\n* sur les machines de dev, pour la gestion des pull requests, connection jira et déploiement avec un outil en ligne de commande utilisant Clikt.\n* sur les serveurs de CI avec un runner kotlin qui execute la compilation, tests et envoi des artifacts.\n* sur un servlet Google Cloud pour héberger nos artifacts et Kdoc.\n* sur un cron pour monitorer les commentaires utilisateurs du Google Play.\n* enfin, de manière générale, pour remplacer bash et perl par du kotlin partout grâce à kscript!\n\nLe but du talk n'est pas d'aller dans le détail de chaque technologie mais plus de montrer l'étendue des possibles. L'écosystème kotlin rend accessible un grand nombre de tâches.",
+    "speakers": [
+      "martin-bonnin"
+    ],
+    "type": "TALK"
+  },
+  {
+    "id": "workshop-coroutines",
+    "title": "Les coroutines en détail",
+    "description": "Les coroutines sont la fonctionalité la plus importante introduite dans Kotlin depuis sa création. Vous avez probablement entendu dire que les coroutines facilitent l'asynchronicité et qu'elles permettent d'écrire ce type de code de manière impérative. Saviez vous que Kotlin fournit une implémentation bas niveau des coroutines très différente de la plupart des autres langages de programmation ?\nDans ce workshop, nous vous proposons de découvrir les coroutines de Kotlin et d'approfondir sur leur spécificité et leurs possibilités. Nous commencerons par comprendre ce que sont exactement les coroutines et leurs utilisations synchrones et asynchrones. Nous verrons ensuite comment les utiliser dans un contexte multi-thread en fonction de nos besoins, et finirons par explorer des patterns architecturaux avancés comme le Reactive Functional Programming et l'Actor Based Programming, simplifé par les librairies haut-niveau (notamment kotlinx.coroutines).\nÀ travers cette matinée, nous créerons ensemble une petite application qui nous permettra de mettre en pratique notre progression dans l'univers des coroutines. Cette application pourra être à votre choix en ligne de commande ou sur Android. Le seul prérequis est de connaître au choix le langage Java ou le langage Kotlin.",
+    "speakers": [
+      "geoffrey-metais",
+      "louis-cad"
+    ],
+    "type": "WORKSHOP"
+  },
+  {
+    "id": "workshop-multiplatform",
+    "title": "Kotlin multi platformes mobiles",
+    "description": "Grâce au langage Kotlin et à son outillage, nous pouvons créer des applications qui pour Android, iOS et le Web.\nDans ce workshop nous verrons comment utiliser Kotlin pour réutiliser notre code métier à travers multiple platformes. Nous verrons comment définir l'architecture de notre applications, créer les abstractions nécéssaires pour obtenir un code réutilisables, comment tester ce code sur toutes ces platformes, et enfin comment le déployer.\nGrâce à une série d'exercices simples, nous créerons ensemble une application qui pourra être déployée sur chaque platforme, chacune conservant sa propre couche de présentation.\nNotez que bien qu'un MacBook est recommandé si vous souhaitez déployer sur iOS ; un PC sous linux ou windows vous permettra d'utiliser Kotlin/JVM, Kotlin/JS et Kotlin/Native.",
+    "speakers": [
+      "salomon-brys"
+    ],
+    "type": "WORKSHOP"
+  },
+  {
+    "id": "workshop-cloud",
+    "title": "Cloud moderne en Kotlin",
+    "description": "Dans ce workshop, nous verrons une nouvelle manière de coder des serveurs en Kotlin, grâce à une librarie développée par Jetbrains : Ktor, un framework permettant de créer un serveur entièrement asynchrone grâce à la puissance du langage Kotlin et de ses coroutines.\nNous commencerons par présenter Ktor et ses utilisations les plus simples pour créer, en quelques lignes, un serveur simple permettant de servir une API et du contenu statique. Nous verrons ensuite comment utiliser certaines des fonctionalités plus avancées, notemment liées à la sécurité et aux systèmes complexes.\nEnfin, nous verrons comment intégrer d'autres librairies utilisant Kotlin et permettant d'architecturer notre code et facilitant grandement la gestion de notre base de données. En 3h30, vous aurez un serveur léger, puissant, lisible et sécurisé !",
+    "speakers": [
+      "romain-boisselle"
+    ],
+    "type": "WORKSHOP"
+  }
+]
