@@ -29,10 +29,10 @@ val logo by functionalComponent<LogoProps> {
                 marginRight = 690.px
 
                 media("(max-width: 970px)") {
-                    marginRight = 16.em
+                    marginRight = 25.em
                 }
-                media("(max-width: 540px)") {
-                    marginRight = 2.em
+                media("(max-width: 670px)") {
+                    marginRight = 8.em
                 }
             }
             if (it.hasTransition)
@@ -101,7 +101,7 @@ val logo by functionalComponent<LogoProps> {
 
                                 fontSize = if (it.isSmall) 0.8.em else 1.em
 
-                                media("(max-width: 540px)") {
+                                media("(max-width: 670px)") {
                                     if (it.isSmall)
                                         opacity = 0.0
                                 }
@@ -123,7 +123,7 @@ val logo by functionalComponent<LogoProps> {
 
                                 fontSize = if (it.isSmall) 0.8.em else 1.em
 
-                                media("(max-width: 540px)") {
+                                media("(max-width: 670px)") {
                                     if (it.isSmall) {
                                         left = 0.2.em
                                         opacity = 0.0
@@ -149,7 +149,7 @@ val logo by functionalComponent<LogoProps> {
 
                                 fontSize = if (it.isSmall) 0.8.em else 1.em
 
-                                media("(max-width: 540px)") {
+                                media("(max-width: 670px)") {
                                     if (it.isSmall)
                                         left = 0.2.em
                                 }

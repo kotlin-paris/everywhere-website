@@ -183,6 +183,15 @@ val header by functionalComponent<HeaderProps> {
             a(href = "#/sponsors") { +"SPONSORS" }
             a(href = "#/agenda") { +"AGENDA" }
             a(href = "#/contact") { +"CONTACT" }
+            styledA(href = "/community_guidelines_fr.pdf") {
+                css {
+                    specific {
+                        display = Display.inline
+                    }
+                }
+
+                +"CODE DE CONDUITE"
+            }
         }
 
         fchild(logo {
