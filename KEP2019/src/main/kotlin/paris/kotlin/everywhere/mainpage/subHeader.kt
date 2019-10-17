@@ -67,7 +67,7 @@ val subHeader by functionalComponent<SubHeaderProps> {
         +"Le "
         b { +"19 octobre 2019" }
         +", sur le "
-        a(href="https://goo.gl/maps/9rqQKUzPV7hkEdqc7") { +"campus d'Epitech Paris" }
+        a(href="https://goo.gl/maps/aHpRuZs8NAxtMiob6") { +"campus d'Epitech Paris" }
         +","
         br {}
         +"un rendez-vous pour mettre Kotlin dans "
