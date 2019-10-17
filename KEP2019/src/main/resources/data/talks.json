@@ -6,6 +6,7 @@
     "speakers": [
       "geoffrey-metais"
     ],
+    "room": "Amphithéâtre",
     "type": "TALK"
   },
   {
@@ -15,6 +16,7 @@
     "speakers": [
       "riadh-mnasri"
     ],
+    "room": "Salle Codelab",
     "type": "CODELAB"
   },
   {
@@ -22,6 +24,7 @@
     "title": "Construire son back-end Kotlin/Spring Boot",
     "description": "Depuis la version 5.0, Kotlin est officiellement supporté par Spring et nous pouvons donc profiter de tout cet univers et de cette communauté pour développer des back-ends robustes et performant dans notre langage préféré.\nDans ce codelab, nous verrons comment construire nos premiers endpoints en quelques minutes grâce à Spring Boot, puis nous découvrirons comment tester, documenter et dockerizer notre application.",
     "speakers": ["remi-dormoy"],
+    "room": "Salle Codelab",
     "type": "CODELAB"
   },
   {
@@ -29,6 +32,7 @@
     "title": "Clôture",
     "description": "Un bilan de cette première édition, et quelques annonces pour la suivante !",
     "speakers": [],
+    "room": "Amphithéâtre",
     "type": "TALK"
   },
   {
@@ -38,6 +42,7 @@
     "speakers": [
       "yacine-rezgui"
     ],
+    "room": "Amphithéâtre",
     "type": "TALK"
   },
   {
@@ -47,6 +52,7 @@
     "speakers": [
       "gaetan-zoritchak"
     ],
+    "room": "Amphithéâtre",
     "type": "TALK"
   },
   {
@@ -56,6 +62,7 @@
     "speakers": [
       "lucien-guimaraes"
     ],
+    "room": "Amphithéâtre",
     "type": "TALK"
   },
   {
@@ -65,6 +72,7 @@
     "speakers": [
       "dmitry-savvinov"
     ],
+    "room": "2e étage",
     "type": "TALK"
   },
   {
@@ -74,6 +82,7 @@
     "speakers": [
       "mohamed-bennis"
     ],
+    "room": "2e étage",
     "type": "TALK"
   },
   {
@@ -81,6 +90,7 @@
     "title": "Ouverture",
     "description": "Venez rencontrer le staff de la conférence et découvrir les dernières tendances Kotlin!",
     "speakers": [],
+    "room": "Amphithéâtre",
     "type": "TALK"
   },
   {
@@ -90,6 +100,7 @@
     "speakers": [
       "salomon-brys"
     ],
+    "room": "2e étage",
     "type": "TALK"
   },
   {
@@ -99,6 +110,7 @@
     "speakers": [
       "sebastien-deleuze"
     ],
+    "room": "Amphithéâtre",
     "type": "TALK"
   },
   {
@@ -108,6 +120,7 @@
     "speakers": [
       "louis-cad"
     ],
+    "room": "2e étage",
     "type": "TALK"
   },
   {
@@ -117,6 +130,7 @@
     "speakers": [
       "martin-bonnin"
     ],
+    "room": "2e étage",
     "type": "TALK"
   },
   {
@@ -127,6 +141,7 @@
       "geoffrey-metais",
       "louis-cad"
     ],
+    "room": "Salle Workshop",
     "type": "WORKSHOP"
   },
   {
@@ -136,6 +151,7 @@
     "speakers": [
       "salomon-brys"
     ],
+    "room": "Salle Workshop",
     "type": "WORKSHOP"
   },
   {
@@ -145,6 +161,7 @@
     "speakers": [
       "romain-boisselle"
     ],
+    "room": "Salle Workshop",
     "type": "WORKSHOP"
   }
 ]
